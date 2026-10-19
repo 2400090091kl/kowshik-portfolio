@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -7,33 +8,34 @@
     scroll-behavior: smooth;
     color-scheme: dark;
   }
-  
+
   body {
-    background-color: #05050f;
-    color: #f3f4f6;
+    background-color: #090909;
+    color: #f5f5f5;
     font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
     overflow-x: hidden;
   }
 }
 
-/* Custom Background Patterns & Glassmorphism */
+/* Black & Gold Background Patterns */
 .bg-grid-pattern {
   background-size: 36px 36px;
-  background-image: 
-    linear-gradient(to right, rgba(168, 85, 247, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(168, 85, 247, 0.04) 1px, transparent 1px);
+  background-image:
+    linear-gradient(to right, rgba(212, 175, 55, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(212, 175, 55, 0.045) 1px, transparent 1px);
 }
 
 .bg-dot-pattern {
-  background-image: radial-gradient(rgba(168, 85, 247, 0.12) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(212, 175, 55, 0.15) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
+/* Glassmorphism Cards */
 .glass-card {
-  background: rgba(15, 12, 30, 0.7);
+  background: rgba(20, 20, 20, 0.78);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(168, 85, 247, 0.18);
+  border: 1px solid rgba(212, 175, 55, 0.2);
 }
 
 .glass-card-hover {
@@ -41,42 +43,50 @@
 }
 
 .glass-card-hover:hover {
-  background: rgba(22, 17, 45, 0.85);
-  border-color: rgba(34, 211, 238, 0.4);
-  box-shadow: 0 0 30px -5px rgba(168, 85, 247, 0.25);
+  background: rgba(29, 26, 18, 0.9);
+  border-color: rgba(245, 215, 110, 0.65);
+  box-shadow: 0 0 30px -5px rgba(212, 175, 55, 0.22);
   transform: translateY(-2px);
 }
 
-/* Vibrant Modern Gradients */
+/* Gold Gradients */
 .text-gradient {
-  background: linear-gradient(135deg, #a855f7 0%, #38bdf8 50%, #ec4899 100%);
+  background: linear-gradient(135deg, #f5d76e 0%, #d4af37 50%, #a88420 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-gradient-cyan {
-  background: linear-gradient(135deg, #22d3ee 0%, #a855f7 100%);
+  background: linear-gradient(135deg, #fff0a8 0%, #d4af37 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-gradient-purple {
-  background: linear-gradient(135deg, #c084fc 0%, #38bdf8 100%);
+  background: linear-gradient(135deg, #f5d76e 0%, #c49a26 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.border-gradient-purple-cyan {
-  border-image: linear-gradient(135deg, #a855f7, #06b6d4) 1;
+.border-gradient-amber-cyan {
+  border-image: linear-gradient(135deg, #f5d76e, #a88420) 1;
 }
 
-/* Custom Glowing Ring Animation */
+/* Gold Glowing Ring Animation */
 @keyframes pulse-glow {
   0%, 100% {
-    box-shadow: 0 0 25px rgba(168, 85, 247, 0.35), 0 0 50px rgba(6, 182, 212, 0.25);
+    box-shadow:
+      0 0 25px rgba(212, 175, 55, 0.25),
+      0 0 50px rgba(168, 132, 32, 0.15);
   }
+
   50% {
-    box-shadow: 0 0 40px rgba(168, 85, 247, 0.55), 0 0 70px rgba(6, 182, 212, 0.4);
+    box-shadow:
+      0 0 40px rgba(245, 215, 110, 0.42),
+      0 0 70px rgba(212, 175, 55, 0.25);
   }
 }
 
@@ -84,26 +94,26 @@
   animation: pulse-glow 4s ease-in-out infinite;
 }
 
-/* Custom Scrollbar */
+/* Gold Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #05050f;
+  background: #090909;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #2e1065;
+  background: #806820;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #a855f7;
+  background: #d4af37;
 }
 
-/* Selection Color */
+/* Gold Text Selection */
 ::selection {
-  background: rgba(168, 85, 247, 0.3);
-  color: #e9d5ff;
+  background: rgba(212, 175, 55, 0.35);
+  color: #fff0a8;
 }

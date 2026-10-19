@@ -9,7 +9,7 @@ export default function AnimatedBackground() {
       <div className="absolute inset-0 bg-grid-pattern opacity-50" />
 
       {/* Radial Top Light - Vibrant Purple/Cyan Blend */}
-      <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[900px] h-[550px] bg-gradient-to-b from-purple-600/20 via-cyan-500/15 to-transparent blur-[130px] rounded-full" />
+      <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[900px] h-[550px] bg-gradient-to-b from-amber-600/20 via-amber-500/15 to-transparent blur-[130px] rounded-full" />
 
       {/* Glowing Ambient Orbs */}
       <motion.div
@@ -23,7 +23,7 @@ export default function AnimatedBackground() {
           repeat: Infinity,
           ease: "easeInOut",
         }}
-        className="absolute top-1/4 -left-32 w-96 h-96 bg-purple-600/20 rounded-full blur-[110px]"
+        className="absolute top-1/4 -left-32 w-96 h-96 bg-amber-600/20 rounded-full blur-[110px]"
       />
 
       <motion.div
@@ -37,7 +37,7 @@ export default function AnimatedBackground() {
           repeat: Infinity,
           ease: "easeInOut",
         }}
-        className="absolute top-2/3 -right-32 w-[32rem] h-[32rem] bg-cyan-500/20 rounded-full blur-[130px]"
+        className="absolute top-2/3 -right-32 w-[32rem] h-[32rem] bg-amber-500/20 rounded-full blur-[130px]"
       />
 
       <motion.div
@@ -51,7 +51,7 @@ export default function AnimatedBackground() {
           repeat: Infinity,
           ease: "easeInOut",
         }}
-        className="absolute bottom-10 left-1/3 w-96 h-96 bg-pink-500/15 rounded-full blur-[110px]"
+        className="absolute bottom-10 left-1/3 w-96 h-96 bg-amber-500/15 rounded-full blur-[110px]"
       />
     </div>
   );

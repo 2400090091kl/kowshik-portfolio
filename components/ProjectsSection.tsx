@@ -13,14 +13,14 @@ export default function ProjectsSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex items-center gap-3 mb-12">
-          <div className="p-2.5 rounded-xl bg-purple-500/15 border border-purple-500/30 text-purple-400">
+          <div className="p-2.5 rounded-xl bg-amber-500/15 border border-amber-500/30 text-amber-400">
             <FolderGit2 className="w-6 h-6" />
           </div>
           <div>
             <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
               Featured Projects
             </h2>
-            <p className="text-xs sm:text-sm text-cyan-400 font-mono">
+            <p className="text-xs sm:text-sm text-amber-400 font-mono">
               Software Solutions & Full-Stack Applications
             </p>
           </div>
@@ -39,20 +39,20 @@ export default function ProjectsSection() {
               className="glass-card glass-card-hover p-6 sm:p-8 rounded-2xl flex flex-col justify-between relative overflow-hidden group"
             >
               {/* Card Decorative Accent */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/10 rounded-full blur-2xl pointer-events-none" />
+              <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/10 rounded-full blur-2xl pointer-events-none" />
 
               <div>
                 {/* Header Meta */}
                 <div className="flex items-center justify-between gap-4 mb-4">
                   {project.year && (
-                    <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900 border border-purple-900/40 text-purple-300 font-mono text-xs">
-                      <Calendar className="w-3.5 h-3.5 text-cyan-400" />
+                    <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900 border border-amber-900/40 text-amber-300 font-mono text-xs">
+                      <Calendar className="w-3.5 h-3.5 text-amber-400" />
                       <span>{project.year}</span>
                     </div>
                   )}
                   {project.status && (
-                    <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-950/60 border border-purple-500/40 text-purple-300 font-mono text-xs">
-                      <Clock className="w-3.5 h-3.5 text-cyan-400 animate-spin-slow" />
+                    <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-950/60 border border-amber-500/40 text-amber-300 font-mono text-xs">
+                      <Clock className="w-3.5 h-3.5 text-amber-400 animate-spin-slow" />
                       <span>{project.status}</span>
                     </div>
                   )}
@@ -65,10 +65,10 @@ export default function ProjectsSection() {
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="hover:text-cyan-300 inline-flex items-center gap-2 group-hover:text-cyan-300 transition-colors"
+                      className="hover:text-amber-300 inline-flex items-center gap-2 group-hover:text-amber-300 transition-colors"
                     >
                       <span>{project.title}</span>
-                      <ArrowUpRight className="w-5 h-5 text-cyan-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                      <ArrowUpRight className="w-5 h-5 text-amber-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                     </a>
                   ) : (
                     <span>{project.title}</span>
@@ -82,7 +82,7 @@ export default function ProjectsSection() {
                       key={dIdx}
                       className="flex items-start gap-2.5 text-slate-300 text-sm leading-relaxed"
                     >
-                      <CheckCircle2 className="w-4 h-4 text-purple-400 shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
                       <span>{desc}</span>
                     </li>
                   ))}
@@ -96,7 +96,7 @@ export default function ProjectsSection() {
                   {project.techStack.map((tech) => (
                     <span
                       key={tech}
-                      className="px-3 py-1 rounded-lg bg-slate-900 border border-purple-900/30 text-xs font-mono text-cyan-300"
+                      className="px-3 py-1 rounded-lg bg-slate-900 border border-amber-900/30 text-xs font-mono text-amber-300"
                     >
                       {tech}
                     </span>
@@ -110,11 +110,11 @@ export default function ProjectsSection() {
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 py-2.5 px-4 rounded-xl bg-purple-950/60 border border-purple-500/40 hover:border-cyan-400 hover:bg-purple-900/80 text-cyan-300 hover:text-cyan-200 text-xs font-mono font-semibold flex items-center justify-center gap-2 transition-all shadow-sm"
+                      className="flex-1 py-2.5 px-4 rounded-xl bg-amber-950/60 border border-amber-500/40 hover:border-amber-400 hover:bg-amber-900/80 text-amber-300 hover:text-amber-200 text-xs font-mono font-semibold flex items-center justify-center gap-2 transition-all shadow-sm"
                     >
-                      <GithubIcon className="w-4 h-4 text-cyan-400" />
+                      <GithubIcon className="w-4 h-4 text-amber-400" />
                       <span>View Repository</span>
-                      <ArrowUpRight className="w-3.5 h-3.5 ml-auto text-cyan-400" />
+                      <ArrowUpRight className="w-3.5 h-3.5 ml-auto text-amber-400" />
                     </a>
                   ) : (
                     <button
@@ -133,9 +133,9 @@ export default function ProjectsSection() {
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 py-2.5 px-4 rounded-xl bg-purple-950/60 border border-purple-500/40 hover:border-cyan-400 hover:bg-purple-900/80 text-cyan-300 text-xs font-mono font-semibold flex items-center justify-center gap-2 transition-all"
+                      className="flex-1 py-2.5 px-4 rounded-xl bg-amber-950/60 border border-amber-500/40 hover:border-amber-400 hover:bg-amber-900/80 text-amber-300 text-xs font-mono font-semibold flex items-center justify-center gap-2 transition-all"
                     >
-                      <ExternalLink className="w-4 h-4 text-cyan-400" />
+                      <ExternalLink className="w-4 h-4 text-amber-400" />
                       <span>Live Demo</span>
                     </a>
                   ) : (

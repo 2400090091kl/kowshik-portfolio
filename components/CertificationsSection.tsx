@@ -12,14 +12,14 @@ export default function CertificationsSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex items-center gap-3 mb-12">
-          <div className="p-2.5 rounded-xl bg-purple-500/15 border border-purple-500/30 text-purple-400">
+          <div className="p-2.5 rounded-xl bg-amber-500/15 border border-amber-500/30 text-amber-400">
             <Award className="w-6 h-6" />
           </div>
           <div>
             <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
               Certifications
             </h2>
-            <p className="text-xs sm:text-sm text-cyan-400 font-mono">
+            <p className="text-xs sm:text-sm text-amber-400 font-mono">
               Verified Professional & Industry Credentials
             </p>
           </div>
@@ -40,11 +40,11 @@ export default function CertificationsSection() {
               <div>
                 {/* Header Icon & Year */}
                 <div className="flex items-center justify-between gap-2 mb-4">
-                  <div className="p-2.5 rounded-xl bg-purple-500/15 border border-purple-500/30 text-purple-400">
+                  <div className="p-2.5 rounded-xl bg-amber-500/15 border border-amber-500/30 text-amber-400">
                     <ShieldCheck className="w-6 h-6" />
                   </div>
-                  <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900 border border-purple-900/40 text-xs font-mono text-purple-300">
-                    <Calendar className="w-3.5 h-3.5 text-cyan-400" />
+                  <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900 border border-amber-900/40 text-xs font-mono text-amber-300">
+                    <Calendar className="w-3.5 h-3.5 text-amber-400" />
                     <span>{cert.year}</span>
                   </div>
                 </div>
@@ -55,8 +55,8 @@ export default function CertificationsSection() {
                 </h3>
 
                 {/* Issuer */}
-                <p className="text-xs font-mono text-cyan-400 mb-6 flex items-center gap-1.5">
-                  <CheckCircle className="w-3.5 h-3.5 text-purple-400" />
+                <p className="text-xs font-mono text-amber-400 mb-6 flex items-center gap-1.5">
+                  <CheckCircle className="w-3.5 h-3.5 text-amber-400" />
                   <span>Issuer: {cert.issuer}</span>
                 </p>
               </div>
@@ -68,7 +68,7 @@ export default function CertificationsSection() {
                     href={cert.credentialUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full py-2.5 px-4 rounded-xl bg-slate-900 border border-purple-500/30 hover:border-cyan-400 hover:bg-purple-950/40 text-cyan-300 hover:text-cyan-200 text-xs font-mono font-semibold flex items-center justify-center gap-2 transition-all shadow-sm"
+                    className="w-full py-2.5 px-4 rounded-xl bg-slate-900 border border-amber-500/30 hover:border-amber-400 hover:bg-amber-950/40 text-amber-300 hover:text-amber-200 text-xs font-mono font-semibold flex items-center justify-center gap-2 transition-all shadow-sm"
                   >
                     <span>Verify Credential</span>
                     <ExternalLink className="w-3.5 h-3.5" />

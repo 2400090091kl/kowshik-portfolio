@@ -46,14 +46,14 @@ export default function ContactSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex items-center gap-3 mb-12">
-          <div className="p-2.5 rounded-xl bg-purple-500/15 border border-purple-500/30 text-purple-400">
+          <div className="p-2.5 rounded-xl bg-amber-500/15 border border-amber-500/30 text-amber-400">
             <MessageSquare className="w-6 h-6" />
           </div>
           <div>
             <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
               Contact Me
             </h2>
-            <p className="text-xs sm:text-sm text-cyan-400 font-mono">
+            <p className="text-xs sm:text-sm text-amber-400 font-mono">
               Get In Touch & Collaborations
             </p>
           </div>
@@ -69,7 +69,7 @@ export default function ContactSection() {
             transition={{ duration: 0.5 }}
             className="lg:col-span-5 space-y-6"
           >
-            <div className="glass-card p-6 sm:p-8 rounded-2xl space-y-6 border-purple-900/40">
+            <div className="glass-card p-6 sm:p-8 rounded-2xl space-y-6 border-amber-900/40">
               <div>
                 <h3 className="text-2xl font-bold text-white mb-2">
                   Let&apos;s Build Something Together
@@ -82,16 +82,16 @@ export default function ContactSection() {
               {/* Contact Info Cards */}
               <div className="space-y-4 pt-2">
                 {/* Email Card */}
-                <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 flex items-center justify-between gap-3 group hover:border-purple-500/40 transition-all">
+                <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 flex items-center justify-between gap-3 group hover:border-amber-500/40 transition-all">
                   <div className="flex items-center gap-3 min-w-0">
-                    <div className="p-2.5 rounded-lg bg-purple-500/15 text-purple-400">
+                    <div className="p-2.5 rounded-lg bg-amber-500/15 text-amber-400">
                       <Mail className="w-5 h-5" />
                     </div>
                     <div className="min-w-0">
                       <div className="text-xs font-mono text-slate-400">Email</div>
                       <a
                         href={`mailto:${contact.email}`}
-                        className="text-xs sm:text-sm font-medium text-slate-200 hover:text-cyan-300 truncate block transition-colors"
+                        className="text-xs sm:text-sm font-medium text-slate-200 hover:text-amber-300 truncate block transition-colors"
                       >
                         {contact.email}
                       </a>
@@ -99,7 +99,7 @@ export default function ContactSection() {
                   </div>
                   <button
                     onClick={() => handleCopy(contact.email, "email")}
-                    className="p-2 rounded-lg bg-slate-800 text-slate-400 hover:text-purple-300 transition-colors"
+                    className="p-2 rounded-lg bg-slate-800 text-slate-400 hover:text-amber-300 transition-colors"
                     title="Copy Email"
                   >
                     {copiedEmail ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
@@ -107,16 +107,16 @@ export default function ContactSection() {
                 </div>
 
                 {/* Phone Card */}
-                <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 flex items-center justify-between gap-3 group hover:border-purple-500/40 transition-all">
+                <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 flex items-center justify-between gap-3 group hover:border-amber-500/40 transition-all">
                   <div className="flex items-center gap-3">
-                    <div className="p-2.5 rounded-lg bg-purple-500/15 text-purple-400">
+                    <div className="p-2.5 rounded-lg bg-amber-500/15 text-amber-400">
                       <Phone className="w-5 h-5" />
                     </div>
                     <div>
                       <div className="text-xs font-mono text-slate-400">Phone</div>
                       <a
                         href={`tel:${contact.phone}`}
-                        className="text-xs sm:text-sm font-medium text-slate-200 hover:text-cyan-300 transition-colors"
+                        className="text-xs sm:text-sm font-medium text-slate-200 hover:text-amber-300 transition-colors"
                       >
                         {contact.phone}
                       </a>
@@ -124,7 +124,7 @@ export default function ContactSection() {
                   </div>
                   <button
                     onClick={() => handleCopy(contact.phone, "phone")}
-                    className="p-2 rounded-lg bg-slate-800 text-slate-400 hover:text-purple-300 transition-colors"
+                    className="p-2 rounded-lg bg-slate-800 text-slate-400 hover:text-amber-300 transition-colors"
                     title="Copy Phone Number"
                   >
                     {copiedPhone ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
@@ -136,20 +136,20 @@ export default function ContactSection() {
                   href={contact.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 flex items-center justify-between gap-3 group hover:border-purple-500/40 transition-all"
+                  className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 flex items-center justify-between gap-3 group hover:border-amber-500/40 transition-all"
                 >
                   <div className="flex items-center gap-3 min-w-0">
-                    <div className="p-2.5 rounded-lg bg-purple-500/15 text-purple-400">
+                    <div className="p-2.5 rounded-lg bg-amber-500/15 text-amber-400">
                       <LinkedinIcon className="w-5 h-5" />
                     </div>
                     <div className="min-w-0">
                       <div className="text-xs font-mono text-slate-400">LinkedIn</div>
-                      <span className="text-xs sm:text-sm font-medium text-slate-200 group-hover:text-cyan-300 truncate block">
+                      <span className="text-xs sm:text-sm font-medium text-slate-200 group-hover:text-amber-300 truncate block">
                         Kowshik Royal
                       </span>
                     </div>
                   </div>
-                  <span className="text-xs font-mono text-cyan-400">Visit &rarr;</span>
+                  <span className="text-xs font-mono text-amber-400">Visit &rarr;</span>
                 </a>
 
                 {/* GitHub Card */}
@@ -157,20 +157,20 @@ export default function ContactSection() {
                   href={contact.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 flex items-center justify-between gap-3 group hover:border-purple-500/40 transition-all"
+                  className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 flex items-center justify-between gap-3 group hover:border-amber-500/40 transition-all"
                 >
                   <div className="flex items-center gap-3 min-w-0">
-                    <div className="p-2.5 rounded-lg bg-purple-500/15 text-purple-400">
+                    <div className="p-2.5 rounded-lg bg-amber-500/15 text-amber-400">
                       <GithubIcon className="w-5 h-5" />
                     </div>
                     <div className="min-w-0">
                       <div className="text-xs font-mono text-slate-400">GitHub</div>
-                      <span className="text-xs sm:text-sm font-medium text-slate-200 group-hover:text-cyan-300 truncate block">
+                      <span className="text-xs sm:text-sm font-medium text-slate-200 group-hover:text-amber-300 truncate block">
                         2400090091kl
                       </span>
                     </div>
                   </div>
-                  <span className="text-xs font-mono text-cyan-400">Visit &rarr;</span>
+                  <span className="text-xs font-mono text-amber-400">Visit &rarr;</span>
                 </a>
               </div>
             </div>
@@ -184,9 +184,9 @@ export default function ContactSection() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="lg:col-span-7"
           >
-            <div className="glass-card glass-card-hover p-6 sm:p-8 rounded-2xl relative border-purple-900/40">
+            <div className="glass-card glass-card-hover p-6 sm:p-8 rounded-2xl relative border-amber-900/40">
               <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
-                <span className="text-purple-400 font-mono">&gt;</span> Send A Message
+                <span className="text-amber-400 font-mono">&gt;</span> Send A Message
               </h3>
 
               {formSubmitted ? (
@@ -215,7 +215,7 @@ export default function ContactSection() {
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         placeholder="John Doe"
-                        className="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-200 text-sm focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all placeholder:text-slate-600"
+                        className="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-200 text-sm focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-all placeholder:text-slate-600"
                       />
                     </div>
 
@@ -228,7 +228,7 @@ export default function ContactSection() {
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         placeholder="john@example.com"
-                        className="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-200 text-sm focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all placeholder:text-slate-600"
+                        className="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-200 text-sm focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-all placeholder:text-slate-600"
                       />
                     </div>
                   </div>
@@ -241,7 +241,7 @@ export default function ContactSection() {
                       value={formData.subject}
                       onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                       placeholder="Project Inquiry / Opportunity"
-                      className="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-200 text-sm focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all placeholder:text-slate-600"
+                      className="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-200 text-sm focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-all placeholder:text-slate-600"
                     />
                   </div>
 
@@ -254,14 +254,14 @@ export default function ContactSection() {
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       placeholder="Write your message here..."
-                      className="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-200 text-sm focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all placeholder:text-slate-600 resize-none"
+                      className="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-200 text-sm focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-all placeholder:text-slate-600 resize-none"
                     />
                   </div>
 
                   {/* Submit Button */}
                   <button
                     type="submit"
-                    className="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-purple-600 via-cyan-500 to-blue-600 text-white font-bold text-sm shadow-lg shadow-purple-600/30 hover:opacity-95 transition-all flex items-center justify-center gap-2 font-mono"
+                    className="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-amber-600 via-amber-500 to-amber-600 text-white font-bold text-sm shadow-lg shadow-amber-600/30 hover:opacity-95 transition-all flex items-center justify-center gap-2 font-mono"
                   >
                     <Send className="w-4 h-4" />
                     <span>Send Message</span>

@@ -12,14 +12,14 @@ export default function EducationSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex items-center gap-3 mb-12">
-          <div className="p-2.5 rounded-xl bg-purple-500/15 border border-purple-500/30 text-purple-400">
+          <div className="p-2.5 rounded-xl bg-amber-500/15 border border-amber-500/30 text-amber-400">
             <GraduationCap className="w-6 h-6" />
           </div>
           <div>
             <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
               Education
             </h2>
-            <p className="text-xs sm:text-sm text-cyan-400 font-mono">
+            <p className="text-xs sm:text-sm text-amber-400 font-mono">
               Academic Qualifications & Coursework
             </p>
           </div>
@@ -32,12 +32,12 @@ export default function EducationSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="glass-card glass-card-hover p-6 sm:p-8 rounded-2xl relative overflow-hidden max-w-4xl mx-auto border-purple-900/40"
+          className="glass-card glass-card-hover p-6 sm:p-8 rounded-2xl relative overflow-hidden max-w-4xl mx-auto border-amber-900/40"
         >
           <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 pb-6 border-b border-slate-800">
             {/* Institution & Degree */}
             <div className="space-y-3">
-              <div className="flex items-center gap-2 text-cyan-400 font-mono text-xs sm:text-sm">
+              <div className="flex items-center gap-2 text-amber-400 font-mono text-xs sm:text-sm">
                 <Building2 className="w-4 h-4" />
                 <span>{education.institution}</span>
               </div>
@@ -45,19 +45,19 @@ export default function EducationSection() {
                 {education.degree}
               </h3>
               <div className="flex items-center gap-2 text-slate-400 text-xs sm:text-sm font-mono">
-                <Calendar className="w-4 h-4 text-purple-400" />
+                <Calendar className="w-4 h-4 text-amber-400" />
                 <span>{education.duration}</span>
               </div>
             </div>
 
             {/* CGPA Badge */}
-            <div className="self-start px-4 py-3 rounded-xl bg-slate-900/90 border border-purple-500/40 flex items-center gap-3 font-mono shadow-inner">
-              <div className="p-2 rounded-lg bg-purple-500/15 text-purple-400">
+            <div className="self-start px-4 py-3 rounded-xl bg-slate-900/90 border border-amber-500/40 flex items-center gap-3 font-mono shadow-inner">
+              <div className="p-2 rounded-lg bg-amber-500/15 text-amber-400">
                 <Award className="w-5 h-5" />
               </div>
               <div>
                 <div className="text-xs text-slate-400">Cumulative GPA</div>
-                <div className="text-lg font-bold text-cyan-300">{education.cgpa}</div>
+                <div className="text-lg font-bold text-amber-300">{education.cgpa}</div>
               </div>
             </div>
           </div>
@@ -65,7 +65,7 @@ export default function EducationSection() {
           {/* Relevant Coursework */}
           <div className="pt-6 space-y-4">
             <h4 className="text-sm font-semibold text-slate-200 uppercase tracking-wider font-mono flex items-center gap-2">
-              <BookOpen className="w-4 h-4 text-purple-400" />
+              <BookOpen className="w-4 h-4 text-amber-400" />
               <span>Relevant Coursework</span>
             </h4>
 
@@ -77,7 +77,7 @@ export default function EducationSection() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.3, delay: idx * 0.04 }}
-                  className="px-3.5 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-xs sm:text-sm font-medium text-slate-300 hover:border-purple-500/40 hover:text-purple-300 transition-all"
+                  className="px-3.5 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-xs sm:text-sm font-medium text-slate-300 hover:border-amber-500/40 hover:text-amber-300 transition-all"
                 >
                   {course}
                 </motion.span>

@@ -9,7 +9,7 @@ export default function DeveloperVisual() {
 
   return (
     <div className="w-full max-w-lg mx-auto lg:max-w-none">
-      <div className="rounded-xl border border-slate-800 bg-slate-900/90 shadow-2xl shadow-cyan-950/40 backdrop-blur-xl overflow-hidden font-mono text-xs sm:text-sm">
+      <div className="rounded-xl border border-slate-800 bg-slate-900/90 shadow-2xl shadow-amber-950/40 backdrop-blur-xl overflow-hidden font-mono text-xs sm:text-sm">
         {/* Window Top Bar */}
         <div className="px-4 py-3 bg-slate-950/80 border-b border-slate-800 flex items-center justify-between">
           <div className="flex items-center gap-2">
@@ -18,8 +18,8 @@ export default function DeveloperVisual() {
             <span className="w-3 h-3 rounded-full bg-green-500/80 inline-block" />
             <span className="ml-2 text-xs text-slate-400 font-mono">kowshik@developer-workspace</span>
           </div>
-          <div className="flex items-center gap-1.5 text-xs text-cyan-400">
-            <span className="inline-block w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
+          <div className="flex items-center gap-1.5 text-xs text-amber-400">
+            <span className="inline-block w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
             <span>Active</span>
           </div>
         </div>
@@ -30,29 +30,29 @@ export default function DeveloperVisual() {
             onClick={() => setActiveTab("code")}
             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-t-md text-xs font-mono border-t border-x transition-colors ${
               activeTab === "code"
-                ? "bg-slate-900 border-slate-800 text-cyan-300 font-semibold"
+                ? "bg-slate-900 border-slate-800 text-amber-300 font-semibold"
                 : "border-transparent text-slate-400 hover:text-slate-200"
             }`}
           >
-            <Code className="w-3.5 h-3.5 text-cyan-400" />
+            <Code className="w-3.5 h-3.5 text-amber-400" />
             <span>Developer.ts</span>
           </button>
           <button
             onClick={() => setActiveTab("config")}
             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-t-md text-xs font-mono border-t border-x transition-colors ${
               activeTab === "config"
-                ? "bg-slate-900 border-slate-800 text-cyan-300 font-semibold"
+                ? "bg-slate-900 border-slate-800 text-amber-300 font-semibold"
                 : "border-transparent text-slate-400 hover:text-slate-200"
             }`}
           >
-            <Cpu className="w-3.5 h-3.5 text-blue-400" />
+            <Cpu className="w-3.5 h-3.5 text-amber-400" />
             <span>Profile.json</span>
           </button>
           <button
             onClick={() => setActiveTab("output")}
             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-t-md text-xs font-mono border-t border-x transition-colors ${
               activeTab === "output"
-                ? "bg-slate-900 border-slate-800 text-cyan-300 font-semibold"
+                ? "bg-slate-900 border-slate-800 text-amber-300 font-semibold"
                 : "border-transparent text-slate-400 hover:text-slate-200"
             }`}
           >
@@ -70,27 +70,27 @@ export default function DeveloperVisual() {
               className="space-y-1.5 font-mono"
             >
               <div>
-                <span className="text-purple-400">interface</span>{" "}
+                <span className="text-amber-400">interface</span>{" "}
                 <span className="text-yellow-300">SoftwareEngineer</span> {"{"}
               </div>
               <div className="pl-4">
-                <span className="text-cyan-300">name</span>:{" "}
+                <span className="text-amber-300">name</span>:{" "}
                 <span className="text-emerald-300">&quot;Kumara Veera Kowshik Parsha&quot;</span>;
               </div>
               <div className="pl-4">
-                <span className="text-cyan-300">education</span>:{" "}
+                <span className="text-amber-300">education</span>:{" "}
                 <span className="text-emerald-300">&quot;B.Tech CSE @ KL University&quot;</span>;
               </div>
               <div className="pl-4">
-                <span className="text-cyan-300">duration</span>:{" "}
+                <span className="text-amber-300">duration</span>:{" "}
                 <span className="text-emerald-300">&quot;2024 - 2028 (Expected)&quot;</span>;
               </div>
               <div className="pl-4">
-                <span className="text-cyan-300">cgpa</span>:{" "}
+                <span className="text-amber-300">cgpa</span>:{" "}
                 <span className="text-amber-300">7.34</span>;
               </div>
               <div className="pl-4">
-                <span className="text-cyan-300">specializations</span>: [
+                <span className="text-amber-300">specializations</span>: [
               </div>
               <div className="pl-8 text-sky-300">
                 &quot;Full-Stack Development&quot;, &quot;Backend Systems&quot;, &quot;Cloud Technologies&quot;
@@ -99,16 +99,16 @@ export default function DeveloperVisual() {
               <div>{"}"}</div>
               <br />
               <div>
-                <span className="text-purple-400">const</span>{" "}
-                <span className="text-blue-300">kowshik</span>:{" "}
+                <span className="text-amber-400">const</span>{" "}
+                <span className="text-amber-300">kowshik</span>:{" "}
                 <span className="text-yellow-300">SoftwareEngineer</span> = {"{"}
               </div>
               <div className="pl-4">
-                <span className="text-cyan-300">status</span>:{" "}
+                <span className="text-amber-300">status</span>:{" "}
                 <span className="text-emerald-300">&quot;Ready for Technical Collaborations & Opportunities&quot;</span>,
               </div>
               <div className="pl-4">
-                <span className="text-cyan-300">coreTech</span>: [<span className="text-orange-300">&quot;Java&quot;</span>, <span className="text-yellow-300">&quot;Spring Boot&quot;</span>, <span className="text-cyan-300">&quot;React.js&quot;</span>, <span className="text-sky-300">&quot;AWS&quot;</span>, <span className="text-indigo-300">&quot;MySQL&quot;</span>],
+                <span className="text-amber-300">coreTech</span>: [<span className="text-orange-300">&quot;Java&quot;</span>, <span className="text-yellow-300">&quot;Spring Boot&quot;</span>, <span className="text-amber-300">&quot;React.js&quot;</span>, <span className="text-sky-300">&quot;AWS&quot;</span>, <span className="text-amber-300">&quot;MySQL&quot;</span>],
               </div>
               <div>{"};"}</div>
             </motion.div>
@@ -122,19 +122,19 @@ export default function DeveloperVisual() {
             >
               <div>{"{"}</div>
               <div className="pl-4">
-                <span className="text-cyan-400">&quot;university&quot;</span>: <span className="text-emerald-300">&quot;Koneru Lakshmaiah Education Foundation&quot;</span>,
+                <span className="text-amber-400">&quot;university&quot;</span>: <span className="text-emerald-300">&quot;Koneru Lakshmaiah Education Foundation&quot;</span>,
               </div>
               <div className="pl-4">
-                <span className="text-cyan-400">&quot;leadershipRoles&quot;</span>: [
+                <span className="text-amber-400">&quot;leadershipRoles&quot;</span>: [
               </div>
               <div className="pl-8 text-sky-300">&quot;President - ForensiXplore Club&quot;,</div>
               <div className="pl-8 text-sky-300">&quot;Technical Member - Broadband Networks Club&quot;</div>
               <div className="pl-4">],</div>
               <div className="pl-4">
-                <span className="text-cyan-400">&quot;certificationsCount&quot;</span>: <span className="text-amber-300">5</span>,
+                <span className="text-amber-400">&quot;certificationsCount&quot;</span>: <span className="text-amber-300">5</span>,
               </div>
               <div className="pl-4">
-                <span className="text-cyan-400">&quot;openToWork&quot;</span>: <span className="text-purple-400">true</span>
+                <span className="text-amber-400">&quot;openToWork&quot;</span>: <span className="text-amber-400">true</span>
               </div>
               <div>{"}"}</div>
             </motion.div>
@@ -151,7 +151,7 @@ export default function DeveloperVisual() {
                 <CheckCircle2 className="w-3.5 h-3.5" />
                 <span>[SUCCESS] Profile loaded: Kumara Veera Kowshik Parsha</span>
               </div>
-              <div className="text-cyan-400 flex items-center gap-1.5">
+              <div className="text-amber-400 flex items-center gap-1.5">
                 <ShieldCheck className="w-3.5 h-3.5" />
                 <span>[VERIFIED] OCI 2025 Architect Associate & AWS Graduate</span>
               </div>

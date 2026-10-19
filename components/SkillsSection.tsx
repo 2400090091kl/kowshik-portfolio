@@ -31,14 +31,14 @@ export default function SkillsSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex items-center gap-3 mb-12">
-          <div className="p-2.5 rounded-xl bg-purple-500/15 border border-purple-500/30 text-purple-400">
+          <div className="p-2.5 rounded-xl bg-amber-500/15 border border-amber-500/30 text-amber-400">
             <Wrench className="w-6 h-6" />
           </div>
           <div>
             <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
               Skills & Expertise
             </h2>
-            <p className="text-xs sm:text-sm text-cyan-400 font-mono">
+            <p className="text-xs sm:text-sm text-amber-400 font-mono">
               Core Technical Stack & Tools
             </p>
           </div>
@@ -55,8 +55,8 @@ export default function SkillsSection() {
                 onClick={() => setSelectedCategory(cat)}
                 className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-mono whitespace-nowrap transition-all duration-200 border ${
                   isSelected
-                    ? "bg-gradient-to-r from-purple-500/20 to-cyan-500/20 border-purple-500/50 text-cyan-300 font-semibold shadow-sm"
-                    : "bg-slate-900/80 border-slate-800 text-slate-400 hover:text-slate-200 hover:border-purple-900/40"
+                    ? "bg-gradient-to-r from-amber-500/20 to-amber-500/20 border-amber-500/50 text-amber-300 font-semibold shadow-sm"
+                    : "bg-slate-900/80 border-slate-800 text-slate-400 hover:text-slate-200 hover:border-amber-900/40"
                 }`}
               >
                 {cat}
@@ -80,7 +80,7 @@ export default function SkillsSection() {
               >
                 <div>
                   <div className="flex items-center gap-3 mb-5 border-b border-slate-800/80 pb-3">
-                    <div className="p-2 rounded-lg bg-purple-500/15 border border-purple-500/30 text-purple-400">
+                    <div className="p-2 rounded-lg bg-amber-500/15 border border-amber-500/30 text-amber-400">
                       <CategoryIcon className="w-5 h-5" />
                     </div>
                     <h3 className="text-lg font-bold text-white tracking-wide">
@@ -94,9 +94,9 @@ export default function SkillsSection() {
                         key={skill.name}
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        className="px-3.5 py-2 rounded-xl bg-slate-900 border border-slate-800 text-xs sm:text-sm font-medium text-slate-200 hover:border-purple-400 hover:text-cyan-300 hover:bg-slate-800/80 transition-all flex items-center gap-2"
+                        className="px-3.5 py-2 rounded-xl bg-slate-900 border border-slate-800 text-xs sm:text-sm font-medium text-slate-200 hover:border-amber-400 hover:text-amber-300 hover:bg-slate-800/80 transition-all flex items-center gap-2"
                       >
-                        <span className="w-1.5 h-1.5 rounded-full bg-purple-400" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
                         <span>{skill.name}</span>
                       </motion.div>
                     ))}

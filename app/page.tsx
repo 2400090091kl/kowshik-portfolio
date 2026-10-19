@@ -13,7 +13,7 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen bg-gray-950 text-slate-100 selection:bg-cyan-500/20 selection:text-cyan-300 overflow-x-hidden">
+    <main className="relative min-h-screen bg-gray-950 text-slate-100 selection:bg-amber-500/20 selection:text-amber-300 overflow-x-hidden">
       {/* Subtle Background Lighting & Grid Effects */}
       <AnimatedBackground />
 

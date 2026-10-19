@@ -12,14 +12,14 @@ export default function LeadershipSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex items-center gap-3 mb-12">
-          <div className="p-2.5 rounded-xl bg-purple-500/15 border border-purple-500/30 text-purple-400">
+          <div className="p-2.5 rounded-xl bg-amber-500/15 border border-amber-500/30 text-amber-400">
             <Users2 className="w-6 h-6" />
           </div>
           <div>
             <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
               Leadership & Achievements
             </h2>
-            <p className="text-xs sm:text-sm text-cyan-400 font-mono">
+            <p className="text-xs sm:text-sm text-amber-400 font-mono">
               Technical Club Initiatives & Responsibility
             </p>
           </div>
@@ -39,16 +39,16 @@ export default function LeadershipSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="glass-card glass-card-hover p-6 sm:p-8 rounded-2xl relative overflow-hidden flex flex-col justify-between border-purple-900/40"
+                className="glass-card glass-card-hover p-6 sm:p-8 rounded-2xl relative overflow-hidden flex flex-col justify-between border-amber-900/40"
               >
                 <div>
                   {/* Top Role & Duration */}
                   <div className="flex items-start justify-between gap-4 mb-4">
-                    <div className="p-3 rounded-xl bg-purple-500/15 border border-purple-500/30 text-purple-400">
+                    <div className="p-3 rounded-xl bg-amber-500/15 border border-amber-500/30 text-amber-400">
                       <Icon className="w-6 h-6" />
                     </div>
-                    <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-900 border border-purple-900/40 text-xs font-mono text-purple-300">
-                      <Calendar className="w-3.5 h-3.5 text-cyan-400" />
+                    <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-900 border border-amber-900/40 text-xs font-mono text-amber-300">
+                      <Calendar className="w-3.5 h-3.5 text-amber-400" />
                       <span>{item.duration}</span>
                     </div>
                   </div>
@@ -57,7 +57,7 @@ export default function LeadershipSection() {
                   <h3 className="text-xl font-bold text-white mb-1">
                     {item.role}
                   </h3>
-                  <p className="text-sm font-mono text-cyan-400 mb-4">
+                  <p className="text-sm font-mono text-amber-400 mb-4">
                     {item.organization}
                   </p>
 

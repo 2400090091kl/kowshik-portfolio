@@ -20,7 +20,7 @@ export default function Footer() {
             <h3 className="text-lg font-bold text-white tracking-wide">
               {personal.name}
             </h3>
-            <p className="text-xs sm:text-sm font-mono text-cyan-400">
+            <p className="text-xs sm:text-sm font-mono text-amber-400">
               {personal.role} <span className="text-slate-600">|</span> {personal.subRole}
             </p>
           </div>
@@ -32,7 +32,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub"
-              className="p-2.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:text-cyan-400 hover:border-cyan-500/40 transition-all"
+              className="p-2.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:text-amber-400 hover:border-amber-500/40 transition-all"
             >
               <GithubIcon className="w-5 h-5" />
             </a>
@@ -41,14 +41,14 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
-              className="p-2.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:text-cyan-400 hover:border-cyan-500/40 transition-all"
+              className="p-2.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:text-amber-400 hover:border-amber-500/40 transition-all"
             >
               <LinkedinIcon className="w-5 h-5" />
             </a>
             <a
               href={`mailto:${personal.contact.email}`}
               aria-label="Email"
-              className="p-2.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:text-cyan-400 hover:border-cyan-500/40 transition-all"
+              className="p-2.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:text-amber-400 hover:border-amber-500/40 transition-all"
             >
               <Mail className="w-5 h-5" />
             </a>
@@ -57,7 +57,7 @@ export default function Footer() {
             <button
               onClick={scrollToTop}
               aria-label="Scroll to top"
-              className="p-2.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:text-cyan-400 hover:border-cyan-500/40 transition-all ml-2"
+              className="p-2.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:text-amber-400 hover:border-amber-500/40 transition-all ml-2"
             >
               <ArrowUp className="w-5 h-5" />
             </button>
