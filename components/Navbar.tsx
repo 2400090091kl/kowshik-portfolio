@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useSpring } from "framer-motion";
 import {
   Home,
   User,
@@ -28,6 +28,14 @@ export default function Navbar() {
   const [activeSection, setActiveSection] = useState("home");
   const [hoveredTab, setHoveredTab] = useState<string | null>(null);
 
+  // Top reading scroll progress bar
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 120,
+    damping: 30,
+    restDelta: 0.001,
+  });
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 250;
@@ -51,70 +59,80 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header className="fixed top-4 sm:top-6 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none">
-      <nav className="polished-dock rounded-full px-2 sm:px-3 py-1.5 sm:py-2 flex items-center gap-1 sm:gap-1.5 shadow-2xl pointer-events-auto max-w-full overflow-x-auto no-scrollbar">
-        {/* Brand Chip */}
-        <a
-          href="#home"
-          className="flex items-center gap-2 pl-2 pr-3 py-1 text-xs font-mono font-bold tracking-wider text-white hover:text-zinc-300 transition-colors border-r border-white/10 shrink-0"
-        >
-          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-          <span>{PORTFOLIO_DATA.personal.shortName}</span>
-        </a>
+    <>
+      {/* Top Scroll Reading Progress Bar */}
+      <motion.div
+        style={{ scaleX }}
+        className="fixed top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-amber-400 via-white to-amber-300 z-50 origin-left pointer-events-none"
+      />
 
-        {/* Dock Nav Buttons */}
-        <div className="flex items-center gap-0.5 sm:gap-1">
-          {navItems.map((item) => {
-            const Icon = item.icon;
-            const isActive = activeSection === item.href.substring(1);
-            const isHovered = hoveredTab === item.name;
+      <header className="fixed top-4 sm:top-6 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none">
+        <nav className="polished-dock rounded-full px-2 sm:px-3 py-1.5 sm:py-2 flex items-center gap-1 sm:gap-1.5 shadow-2xl pointer-events-auto max-w-full overflow-x-auto no-scrollbar">
+          {/* Brand Chip */}
+          <a
+            href="#home"
+            className="flex items-center gap-2 pl-2 pr-3 py-1 text-xs font-mono font-bold tracking-wider text-white hover:text-zinc-300 transition-colors border-r border-white/10 shrink-0"
+          >
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            <span>{PORTFOLIO_DATA.personal.shortName}</span>
+          </a>
 
-            return (
-              <a
-                key={item.name}
-                href={item.href}
-                onMouseEnter={() => setHoveredTab(item.name)}
-                onMouseLeave={() => setHoveredTab(null)}
-                className={`relative px-2.5 sm:px-3.5 py-1.5 rounded-full text-xs font-medium transition-all duration-200 flex items-center gap-1.5 shrink-0 ${
-                  isActive
-                    ? "text-white"
-                    : "text-zinc-400 hover:text-zinc-200"
-                }`}
-              >
-                {/* Active Bubble Pill Indicator */}
-                {isActive && (
-                  <motion.span
-                    layoutId="activeDockBubble"
-                    className="absolute inset-0 bg-white/10 rounded-full border border-white/15 shadow-sm"
-                    transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                  />
-                )}
+          {/* Dock Nav Buttons */}
+          <div className="flex items-center gap-0.5 sm:gap-1">
+            {navItems.map((item) => {
+              const Icon = item.icon;
+              const isActive = activeSection === item.href.substring(1);
+              const isHovered = hoveredTab === item.name;
 
-                {/* Hover effect when not active */}
-                {!isActive && isHovered && (
-                  <motion.span
-                    layoutId="hoverDockBubble"
-                    className="absolute inset-0 bg-white/[0.05] rounded-full"
-                    transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                  />
-                )}
+              return (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  onMouseEnter={() => setHoveredTab(item.name)}
+                  onMouseLeave={() => setHoveredTab(null)}
+                  className={`relative px-2.5 sm:px-3.5 py-1.5 rounded-full text-xs font-medium transition-all duration-200 flex items-center gap-1.5 shrink-0 ${
+                    isActive
+                      ? "text-white"
+                      : "text-zinc-400 hover:text-zinc-200"
+                  }`}
+                >
+                  {/* Active Bubble Pill Indicator */}
+                  {isActive && (
+                    <motion.span
+                      layoutId="activeDockBubble"
+                      className="absolute inset-0 bg-white/10 rounded-full border border-white/15 shadow-sm"
+                      transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                    />
+                  )}
 
-                <Icon className="w-3.5 h-3.5 relative z-10 shrink-0" />
-                <span className="relative z-10 hidden md:inline">{item.name}</span>
-              </a>
-            );
-          })}
-        </div>
+                  {/* Hover effect when not active */}
+                  {!isActive && isHovered && (
+                    <motion.span
+                      layoutId="hoverDockBubble"
+                      className="absolute inset-0 bg-white/[0.05] rounded-full"
+                      transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                    />
+                  )}
 
-        {/* Quick CTA */}
-        <a
-          href="#contact"
-          className="ml-1 pl-2.5 pr-3 py-1 rounded-full bg-white text-black hover:bg-zinc-200 text-xs font-mono font-semibold transition-all flex items-center gap-1 shadow-sm shrink-0"
-        >
-          <span className="hidden sm:inline">Let&apos;s Talk</span>
-          <ArrowUpRight className="w-3.5 h-3.5" />
-        </a>
-      </nav>
-    </header>
+                  <Icon className="w-3.5 h-3.5 relative z-10 shrink-0" />
+                  <span className="relative z-10 hidden md:inline">{item.name}</span>
+                </a>
+              );
+            })}
+          </div>
+
+          {/* Quick Contact CTA */}
+          <motion.a
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            href="#contact"
+            className="ml-1 pl-2.5 pr-3 py-1 rounded-full bg-white text-black hover:bg-zinc-200 text-xs font-mono font-semibold transition-all flex items-center gap-1 shadow-sm shrink-0"
+          >
+            <span className="hidden sm:inline">Let&apos;s Talk</span>
+            <ArrowUpRight className="w-3.5 h-3.5" />
+          </motion.a>
+        </nav>
+      </header>
+    </>
   );
 }

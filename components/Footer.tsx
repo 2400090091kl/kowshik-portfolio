@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { Mail, ArrowUp } from "lucide-react";
 import { PORTFOLIO_DATA } from "@/data/portfolioData";
 import { GithubIcon, LinkedinIcon } from "./icons/SocialIcons";
@@ -50,7 +51,9 @@ export default function Footer() {
 
           {/* Social Links & Back to Top */}
           <div className="flex items-center gap-2">
-            <a
+            <motion.a
+              whileHover={{ scale: 1.1, y: -2 }}
+              whileTap={{ scale: 0.95 }}
               href={personal.contact.github}
               target="_blank"
               rel="noopener noreferrer"
@@ -58,8 +61,10 @@ export default function Footer() {
               className="p-2.5 rounded-full bg-white/[0.03] border border-white/10 text-zinc-300 hover:text-white hover:border-white/20 transition-all"
             >
               <GithubIcon className="w-4 h-4" />
-            </a>
-            <a
+            </motion.a>
+            <motion.a
+              whileHover={{ scale: 1.1, y: -2 }}
+              whileTap={{ scale: 0.95 }}
               href={personal.contact.linkedin}
               target="_blank"
               rel="noopener noreferrer"
@@ -67,23 +72,27 @@ export default function Footer() {
               className="p-2.5 rounded-full bg-white/[0.03] border border-white/10 text-zinc-300 hover:text-white hover:border-white/20 transition-all"
             >
               <LinkedinIcon className="w-4 h-4" />
-            </a>
-            <a
+            </motion.a>
+            <motion.a
+              whileHover={{ scale: 1.1, y: -2 }}
+              whileTap={{ scale: 0.95 }}
               href={`mailto:${personal.contact.email}`}
               aria-label="Send Email"
               className="p-2.5 rounded-full bg-white/[0.03] border border-white/10 text-zinc-300 hover:text-white hover:border-white/20 transition-all"
             >
               <Mail className="w-4 h-4" />
-            </a>
+            </motion.a>
 
             {/* Back to top */}
-            <button
+            <motion.button
+              whileHover={{ scale: 1.1, y: -2 }}
+              whileTap={{ scale: 0.95 }}
               onClick={scrollToTop}
               aria-label="Scroll to top"
               className="p-2.5 rounded-full bg-white/[0.05] border border-white/15 text-zinc-300 hover:text-white hover:bg-white/10 transition-all ml-2"
             >
               <ArrowUp className="w-4 h-4" />
-            </button>
+            </motion.button>
           </div>
         </div>
 
