@@ -40,20 +40,22 @@
     0 0 1px 1px rgba(255, 255, 255, 0.05);
 }
 
-/* Polished Glass Cards */
+/* Polished Glass Cards with Radiant Glow on Hover */
 .polished-card {
-  background: rgba(17, 17, 17, 0.6);
+  background: rgba(17, 17, 17, 0.65);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .polished-card:hover {
-  background: rgba(22, 22, 22, 0.85);
-  border-color: rgba(255, 255, 255, 0.16);
+  background: rgba(24, 24, 24, 0.92);
+  border-color: rgba(255, 255, 255, 0.32);
   transform: translateY(-2px);
-  box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.6);
+  box-shadow: 
+    0 16px 36px -12px rgba(0, 0, 0, 0.7),
+    0 0 28px rgba(255, 255, 255, 0.12);
 }
 
 /* Polished Count Badge */
@@ -126,4 +128,16 @@
 ::selection {
   background: rgba(234, 179, 8, 0.25);
   color: #fef08a;
+}
+
+/* Reduced Motion Override */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

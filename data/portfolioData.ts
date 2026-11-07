@@ -62,12 +62,12 @@ export const PORTFOLIO_DATA = {
     role: "Computer Science and Information Technology Student",
     subRole: "Aspiring Software Engineer",
     university: "Koneru Lakshmaiah University (KL University)",
-    academicYear: "Second Year",
+    academicYear: "3rd Year",
     careerObjective: "Seeking Software Engineering Internship opportunities.",
     heroBio:
-      "Second-year Computer Science & IT student at KL University specializing in cloud computing, full-stack architectures, and building high-performance, data-driven systems.",
+      "3rd-year Computer Science & IT student at KL University specializing in cloud computing, full-stack architectures, and building high-performance, data-driven systems.",
     aboutBio:
-      "I am a Computer Science and Information Technology (CSIT) student at Koneru Lakshmaiah University (KL University), currently in my second year pursuing B.Tech from 2024 to 2028. I focus on developing clean software applications, designing cloud-monitored architectures on Microsoft Azure, and transforming complex data into intuitive, real-time user experiences.",
+      "I am a Computer Science and Information Technology (CSIT) student at Koneru Lakshmaiah University (KL University), currently in my 3rd year pursuing B.Tech from 2024 to 2028. I focus on developing clean software applications, designing cloud-monitored architectures on Microsoft Azure, and transforming complex data into intuitive, real-time user experiences.",
     focusAreas: [
       "Full-Stack Web Development",
       "Cloud Infrastructure & Azure Monitoring",
@@ -80,15 +80,16 @@ export const PORTFOLIO_DATA = {
       email: "2400090091csit@gmail.com",
       phone: "+91 80744 56221",
       phoneRaw: "8074456221",
-      linkedin: "https://www.linkedin.com/in/kowshik-royal-999ab8360/",
+      linkedin: "https://www.linkedin.com/in/parsha-kumara-veera-kowshik-999ab8360/",
       github: "https://github.com/2400090091kl",
+      resumeUrl: "mailto:2400090091csit@gmail.com?subject=Request%20for%20Resume%20-%20P.%20Kumara%20Veera%20Kowshik&body=Hi%20Kowshik,%0D%0A%0D%0AI%20reviewed%20your%20portfolio%20and%20would%20like%20to%20request%20your%20latest%20resume%20for%20an%20internship%20/%20software%20engineering%20opportunity.%0D%0A%0D%0ABest%20regards,",
     },
   },
   education: {
     institution: "Koneru Lakshmaiah University (KL University)",
     degree: "B.Tech, Computer Science and Information Technology (CSIT)",
     duration: "2024 – 2028 (Expected)",
-    currentYear: "Second Year",
+    currentYear: "3rd Year",
     cgpa: "7.60 / 10.0",
     coursework: [
       "Data Structures and Algorithms",

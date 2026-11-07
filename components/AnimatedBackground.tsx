@@ -1,8 +1,10 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 export default function AnimatedBackground() {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden bg-[#080808]">
       {/* Subtle Polished Grid pattern overlay */}
@@ -13,7 +15,7 @@ export default function AnimatedBackground() {
 
       {/* Very subtle floating ambient orb 1 */}
       <motion.div
-        animate={{
+        animate={shouldReduceMotion ? {} : {
           x: [0, 25, -20, 0],
           y: [0, -30, 20, 0],
           opacity: [0.08, 0.16, 0.08],
@@ -28,7 +30,7 @@ export default function AnimatedBackground() {
 
       {/* Very subtle floating ambient orb 2 */}
       <motion.div
-        animate={{
+        animate={shouldReduceMotion ? {} : {
           x: [0, -30, 20, 0],
           y: [0, 35, -25, 0],
           opacity: [0.06, 0.14, 0.06],
