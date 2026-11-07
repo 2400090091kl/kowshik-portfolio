@@ -1,71 +1,135 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Briefcase, Code, CheckCircle2 } from "lucide-react";
+import { CheckCircle2, ArrowUpRight } from "lucide-react";
 import { PORTFOLIO_DATA } from "@/data/portfolioData";
 
 export default function ExperienceSection() {
-  const { experience } = PORTFOLIO_DATA;
+  const { experience, leadership } = PORTFOLIO_DATA;
+
+  // Combined timeline items
+  const combinedEntries = [
+    {
+      type: "experience",
+      title: experience[0].title,
+      role: experience[0].category,
+      duration: experience[0].duration || "Cloud Operations & Architecture",
+      highlights: experience[0].highlights,
+      tag: "Cloud Operations",
+    },
+    {
+      type: "leadership",
+      title: leadership[0].organization,
+      role: leadership[0].role,
+      duration: leadership[0].duration,
+      highlights: [
+        leadership[0].description,
+        "Coordinated student executive teams and organized campus-wide cybersecurity awareness initiatives.",
+        "Facilitated hands-on technical workshops on digital forensics and system vulnerability assessment.",
+      ],
+      tag: "Club President",
+    },
+    {
+      type: "leadership",
+      title: leadership[1].organization,
+      role: leadership[1].role,
+      duration: leadership[1].duration,
+      highlights: [
+        leadership[1].description,
+        "Delivered technical presentations on modern networking protocols and network infrastructure.",
+        "Organized collaborative workshops on packet analysis and local network configuration.",
+      ],
+      tag: "Technical Member",
+    },
+    {
+      type: "experience",
+      title: experience[1].title,
+      role: experience[1].category,
+      duration: experience[1].duration || "Collaborative Full-Stack",
+      highlights: experience[1].highlights,
+      tag: "Hackathon Platform",
+    },
+  ];
 
   return (
-    <section id="experience" className="py-20 relative z-10">
+    <section id="experience" className="py-24 relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex items-center gap-3 mb-12">
-          <div className="p-2.5 rounded-xl bg-amber-500/15 border border-amber-500/30 text-amber-400">
-            <Briefcase className="w-6 h-6" />
-          </div>
-          <div>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
-              Experience
-            </h2>
-            <p className="text-xs sm:text-sm text-amber-400 font-mono">
-              Practical Development & Hackathon Work
-            </p>
-          </div>
-          <div className="flex-1 h-px bg-slate-800 ml-4 hidden sm:block" />
+        <div className="flex items-center gap-3 mb-4">
+          <h2 className="text-2xl sm:text-3xl font-light text-white tracking-tight">
+            Experience & Leadership
+          </h2>
+          <span className="polished-count-badge">({combinedEntries.length})</span>
+          <div className="flex-1 h-px bg-white/10 ml-4 hidden sm:block" />
         </div>
+        <p className="text-sm sm:text-base text-zinc-400 font-light max-w-2xl mb-12">
+          Practical cloud operations, collaborative full-stack projects, and technical student club leadership.
+        </p>
 
-        {/* Timeline Container */}
-        <div className="max-w-4xl mx-auto relative pl-6 sm:pl-8 border-l border-slate-800">
-          {experience.map((item, idx) => (
+        {/* Timeline / Card List */}
+        <div className="space-y-6 max-w-5xl">
+          {combinedEntries.map((item, idx) => (
             <motion.div
-              key={item.title}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              key={item.title + idx}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="relative mb-8 last:mb-0"
+              transition={{ duration: 0.5, delay: idx * 0.08 }}
+              className="polished-card p-6 sm:p-8 rounded-3xl relative space-y-4"
             >
-              {/* Timeline Indicator Node */}
-              <div className="absolute -left-[31px] sm:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-slate-950 border-2 border-amber-400 shadow-[0_0_12px_rgba(168,85,247,0.6)]" />
-
-              <div className="glass-card glass-card-hover p-6 sm:p-8 rounded-2xl">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4 pb-4 border-b border-slate-800">
-                  <div className="space-y-1">
-                    <div className="flex items-center gap-2 text-amber-400 font-mono text-xs">
-                      <Code className="w-3.5 h-3.5" />
-                      <span>{item.category}</span>
-                    </div>
-                    <h3 className="text-xl sm:text-2xl font-bold text-white">
-                      {item.title}
-                    </h3>
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/5 pb-4">
+                <div className="space-y-1">
+                  <div className="flex items-center gap-2">
+                    <span className="px-2.5 py-0.5 rounded-full bg-white/[0.04] border border-white/10 text-xs font-mono text-zinc-400">
+                      {item.tag}
+                    </span>
+                    <span className="text-xs font-mono text-zinc-500">
+                      {item.duration}
+                    </span>
                   </div>
+                  <h3 className="text-xl sm:text-2xl font-normal text-white">
+                    {item.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm font-mono text-zinc-400">
+                    {item.role}
+                  </p>
                 </div>
+              </div>
 
-                {/* Highlights List */}
-                <ul className="space-y-3">
-                  {item.highlights.map((bullet, bulletIdx) => (
+              {/* Highlights List */}
+              <ul className="space-y-2.5 pt-1">
+                {item.highlights.map((bullet, bulletIdx) => {
+                  const hasUrl = bullet.includes("http");
+                  return (
                     <li
                       key={bulletIdx}
-                      className="flex items-start gap-3 text-slate-300 text-sm leading-relaxed"
+                      className="flex items-start gap-2.5 text-zinc-300 text-xs sm:text-sm font-light leading-relaxed"
                     >
-                      <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
-                      <span>{bullet}</span>
+                      <CheckCircle2 className="w-3.5 h-3.5 text-zinc-500 shrink-0 mt-1" />
+                      <span>
+                        {hasUrl
+                          ? bullet.split(/(https?:\/\/[^\s]+)/g).map((part, pIdx) =>
+                              part.startsWith("http") ? (
+                                <a
+                                  key={pIdx}
+                                  href={part}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="text-white hover:underline underline-offset-2 font-mono break-all inline-flex items-center gap-1 transition-colors"
+                                >
+                                  <span>{part}</span>
+                                  <ArrowUpRight className="w-3 h-3 text-zinc-400" />
+                                </a>
+                              ) : (
+                                part
+                              )
+                            )
+                          : bullet}
+                      </span>
                     </li>
-                  ))}
-                </ul>
-              </div>
+                  );
+                })}
+              </ul>
             </motion.div>
           ))}
         </div>

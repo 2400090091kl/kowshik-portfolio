@@ -2,133 +2,177 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Mail, ArrowRight, Sparkles, ChevronDown } from "lucide-react";
+import { ArrowRight, Mail, Sparkles, ShieldCheck } from "lucide-react";
 import { PORTFOLIO_DATA } from "@/data/portfolioData";
 import { GithubIcon, LinkedinIcon } from "./icons/SocialIcons";
 
 export default function HeroSection() {
   const { personal } = PORTFOLIO_DATA;
 
+  const disciplines = [
+    "Full-Stack Development",
+    "Cloud & Azure Monitoring",
+    "FastAPI & Python",
+    "Next.js & React",
+    "Data Structures & Algorithms",
+    "REST API Engineering",
+  ];
+
   return (
     <section
       id="home"
-      className="relative min-h-screen pt-28 pb-16 flex flex-col justify-center items-center overflow-hidden"
+      className="relative min-h-[92vh] pt-28 sm:pt-36 pb-16 flex flex-col justify-center items-center overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-          {/* Left Column: Existing Hero Text & CTAs */}
+          {/* Left Column: Heading, Subtitle & CTAs */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-7 space-y-6 text-center lg:text-left"
           >
-            {/* Status Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-amber-500/40 text-amber-300 text-xs sm:text-sm font-mono shadow-md shadow-amber-950/40">
-              <Sparkles className="w-3.5 h-3.5 text-amber-400 animate-pulse" />
-              <span>{personal.university}</span>
+            {/* Status / Availability Pill */}
+            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/10 text-xs font-mono text-zinc-300 shadow-sm backdrop-blur-md">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              <span>KL University</span>
+              <span className="text-zinc-600">·</span>
+              <span className="text-zinc-400">Seeking SWE Internships</span>
             </div>
 
-            {/* Main Heading */}
+            {/* Main Editorial Heading */}
             <div className="space-y-2">
-              <h1 className="text-3xl sm:text-5xl xl:text-6xl font-extrabold tracking-tight text-white leading-tight">
-                Hi, I am <br />
-                <span className="text-gradient drop-shadow-sm">
-                  {personal.name}
+              <h1 className="text-4xl sm:text-6xl xl:text-7xl font-light tracking-tight text-white leading-[1.08]">
+                I&apos;m <span className="font-semibold text-white">{personal.name}</span>
+                <br />
+                <span className="font-serif italic font-normal text-zinc-400 hover:text-zinc-200 transition-colors">
+                  Software Engineer
                 </span>
               </h1>
-              <p className="text-lg sm:text-xl font-medium text-amber-400 font-mono pt-1">
-                {personal.role} <span className="text-slate-500">|</span> {personal.subRole}
+              <p className="text-xs sm:text-sm font-mono text-zinc-400 tracking-wider uppercase pt-1">
+                {personal.role} <span className="text-zinc-600">·</span> {personal.academicYear}
               </p>
             </div>
 
-            {/* Short Introduction */}
-            <p className="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-              &quot;{personal.heroBio}&quot;
+            {/* Refined Bio Description */}
+            <p className="text-zinc-300 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal">
+              {personal.heroBio}
             </p>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
-              <a
-                href="#projects"
-                className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-amber-600 via-amber-500 to-amber-600 text-white font-semibold text-sm shadow-lg shadow-amber-600/30 hover:shadow-amber-500/50 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center gap-2 font-mono group"
-              >
-                <span>View My Projects</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </a>
-              <a
-                href="#contact"
-                className="px-6 py-3.5 rounded-xl bg-slate-900 border border-amber-500/40 text-slate-200 font-semibold text-sm hover:bg-amber-950/40 hover:border-amber-400 hover:text-amber-300 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center gap-2 font-mono"
-              >
-                <Mail className="w-4 h-4 text-amber-400" />
-                <span>Contact Me</span>
-              </a>
+            {/* Discipline Badges */}
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 pt-1">
+              {disciplines.map((item, idx) => (
+                <span
+                  key={idx}
+                  className="px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.07] text-xs font-mono text-zinc-400 hover:text-zinc-200 hover:border-white/20 transition-colors"
+                >
+                  {item}
+                </span>
+              ))}
             </div>
 
-            {/* Social Icons */}
-            <div className="pt-4 flex items-center justify-center lg:justify-start gap-4 text-slate-400">
-              <span className="text-xs uppercase font-mono text-slate-500 tracking-wider">Connect:</span>
+            {/* Action Buttons & Socials */}
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3.5 pt-3">
               <a
-                href={personal.contact.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="GitHub Profile"
-                className="p-2.5 rounded-xl bg-slate-900 border border-amber-900/40 text-slate-300 hover:text-amber-300 hover:border-amber-500/40 hover:bg-slate-800/80 transition-all"
+                href="#projects"
+                className="px-6 py-3 rounded-full bg-white text-black font-semibold text-xs sm:text-sm shadow-xl hover:bg-zinc-200 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center gap-2 font-mono group"
               >
-                <GithubIcon className="w-5 h-5" />
+                <span>Selected Work</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </a>
+
               <a
-                href={personal.contact.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn Profile"
-                className="p-2.5 rounded-xl bg-slate-900 border border-amber-900/40 text-slate-300 hover:text-amber-300 hover:border-amber-500/40 hover:bg-slate-800/80 transition-all"
+                href="#contact"
+                className="px-6 py-3 rounded-full bg-zinc-900/90 border border-white/10 text-zinc-200 font-semibold text-xs sm:text-sm hover:bg-zinc-800 hover:border-white/25 hover:text-white transition-all flex items-center gap-2 font-mono"
               >
-                <LinkedinIcon className="w-5 h-5" />
+                <Mail className="w-4 h-4 text-zinc-400" />
+                <span>Let&apos;s Talk</span>
               </a>
-              <a
-                href={`mailto:${personal.contact.email}`}
-                aria-label="Send Email"
-                className="p-2.5 rounded-xl bg-slate-900 border border-amber-900/40 text-slate-300 hover:text-amber-300 hover:border-amber-500/40 hover:bg-slate-800/80 transition-all"
-              >
-                <Mail className="w-5 h-5" />
-              </a>
+
+              {/* Social Icons */}
+              <div className="flex items-center gap-2 pl-2">
+                <a
+                  href={personal.contact.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="GitHub Profile"
+                  className="p-2.5 rounded-full bg-white/[0.04] border border-white/10 text-zinc-300 hover:text-white hover:border-white/25 hover:bg-white/[0.08] transition-all"
+                >
+                  <GithubIcon className="w-4 h-4" />
+                </a>
+                <a
+                  href={personal.contact.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn Profile"
+                  className="p-2.5 rounded-full bg-white/[0.04] border border-white/10 text-zinc-300 hover:text-white hover:border-white/25 hover:bg-white/[0.08] transition-all"
+                >
+                  <LinkedinIcon className="w-4 h-4" />
+                </a>
+                <a
+                  href={`mailto:${personal.contact.email}`}
+                  aria-label="Send Email"
+                  className="p-2.5 rounded-full bg-white/[0.04] border border-white/10 text-zinc-300 hover:text-white hover:border-white/25 hover:bg-white/[0.08] transition-all"
+                >
+                  <Mail className="w-4 h-4" />
+                </a>
+              </div>
             </div>
           </motion.div>
 
-          {/* Right Column: Profile Photo with Vibrant Purple/Cyan/Blue Gradient Glow Ring */}
+          {/* Right Column: Polished 3D Perspective Showcase Card with Portrait */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
+            transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-5 w-full flex justify-center lg:justify-end"
           >
             <div className="relative group max-w-sm sm:max-w-md lg:max-w-none w-full flex justify-center">
-              {/* Outer Ambient Glow Ring Background */}
-              <div className="absolute -inset-1.5 bg-gradient-to-r from-amber-600 via-amber-500 to-amber-600 rounded-3xl blur-xl opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse" />
+              {/* Subtle Ambient Backlight Glow */}
+              <div className="absolute -inset-1 bg-gradient-to-tr from-white/5 via-amber-500/10 to-transparent rounded-[2.5rem] blur-2xl opacity-60 group-hover:opacity-100 transition duration-700 pointer-events-none" />
 
-              {/* Photo Frame Container */}
-              <div className="relative rounded-3xl p-2.5 bg-slate-950/90 border border-amber-500/30 overflow-hidden shadow-2xl shadow-amber-950/60 max-w-[340px] sm:max-w-[380px] w-full">
-                <div className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden bg-slate-900 border border-slate-800">
+              {/* Card Container Frame */}
+              <div className="relative rounded-[2rem] p-3 bg-zinc-950/80 backdrop-blur-2xl border border-white/10 overflow-hidden shadow-2xl max-w-[340px] sm:max-w-[380px] w-full">
+                {/* Portrait Photo Container */}
+                <div className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden bg-zinc-900 border border-white/5">
                   <Image
                     src="/profile.jpeg"
                     alt={personal.name}
                     fill
                     priority
                     sizes="(max-width: 640px) 340px, 380px"
-                    className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                    className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
                   />
-                  
-                  {/* Subtle Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-60 pointer-events-none" />
 
-                  {/* Bottom Floating Badge inside Photo */}
-                  <div className="absolute bottom-3 left-3 right-3 p-3 rounded-xl bg-slate-950/85 backdrop-blur-md border border-amber-500/30 text-xs font-mono flex items-center justify-between text-slate-200 shadow-lg">
-                    <div className="flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-amber-400 animate-ping" />
-                      <span className="font-semibold text-amber-300">B.Tech CSIT</span>
+                  {/* Gradient Vignette */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent opacity-75 pointer-events-none" />
+
+                  {/* Floating Telemetry Micro-Badge 1: Top Right */}
+                  <motion.div
+                    animate={{ y: [0, -4, 0] }}
+                    transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+                    className="absolute top-3.5 right-3.5 px-3 py-1.5 rounded-full bg-black/70 backdrop-blur-md border border-white/15 text-[11px] font-mono text-zinc-200 flex items-center gap-1.5 shadow-lg"
+                  >
+                    <Sparkles className="w-3 h-3 text-amber-400" />
+                    <span>B.Tech CSIT &apos;28</span>
+                  </motion.div>
+
+                  {/* Bottom Floating Glass Card inside Photo */}
+                  <div className="absolute bottom-3.5 left-3.5 right-3.5 p-3 rounded-xl bg-black/75 backdrop-blur-xl border border-white/15 text-xs font-mono space-y-1.5 shadow-xl">
+                    <div className="flex items-center justify-between text-zinc-300">
+                      <div className="flex items-center gap-2">
+                        <ShieldCheck className="w-4 h-4 text-emerald-400" />
+                        <span className="font-semibold text-white">KL University</span>
+                      </div>
+                      <span className="text-zinc-400 text-[11px]">CGPA: 7.60</span>
                     </div>
-                    <span className="text-slate-400">2024–2028</span>
+                    <div className="text-[11px] text-zinc-400 flex items-center justify-between border-t border-white/10 pt-1.5">
+                      <span>Cloud & Full-Stack</span>
+                      <span className="text-emerald-400 flex items-center gap-1">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                        Active
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -136,21 +180,6 @@ export default function HeroSection() {
           </motion.div>
         </div>
       </div>
-
-      {/* Scroll indicator */}
-      <motion.a
-        href="#about"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1, y: [0, 8, 0] }}
-        transition={{
-          opacity: { delay: 1, duration: 0.5 },
-          y: { repeat: Infinity, duration: 2, ease: "easeInOut" },
-        }}
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 text-slate-500 hover:text-amber-400 transition-colors p-2"
-        aria-label="Scroll to About section"
-      >
-        <ChevronDown className="w-6 h-6" />
-      </motion.a>
     </section>
   );
 }

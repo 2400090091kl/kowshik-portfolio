@@ -1,30 +1,26 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Award, ExternalLink, Calendar, CheckCircle, ShieldCheck } from "lucide-react";
+import { CheckCircle2, ShieldCheck, ArrowUpRight } from "lucide-react";
 import { PORTFOLIO_DATA } from "@/data/portfolioData";
 
 export default function CertificationsSection() {
   const { certifications } = PORTFOLIO_DATA;
 
   return (
-    <section id="certifications" className="py-20 relative z-10">
+    <section id="certifications" className="py-24 relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex items-center gap-3 mb-12">
-          <div className="p-2.5 rounded-xl bg-amber-500/15 border border-amber-500/30 text-amber-400">
-            <Award className="w-6 h-6" />
-          </div>
-          <div>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
-              Certifications
-            </h2>
-            <p className="text-xs sm:text-sm text-amber-400 font-mono">
-              Verified Professional & Industry Credentials
-            </p>
-          </div>
-          <div className="flex-1 h-px bg-slate-800 ml-4 hidden sm:block" />
+        <div className="flex items-center gap-3 mb-4">
+          <h2 className="text-2xl sm:text-3xl font-light text-white tracking-tight">
+            Certifications & Achievements
+          </h2>
+          <span className="polished-count-badge">({certifications.length})</span>
+          <div className="flex-1 h-px bg-white/10 ml-4 hidden sm:block" />
         </div>
+        <p className="text-sm sm:text-base text-zinc-400 font-light max-w-2xl mb-12">
+          Verified industry certifications in cloud architecture, DevOps, AI, and backend microservices.
+        </p>
 
         {/* Certifications Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -34,52 +30,48 @@ export default function CertificationsSection() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: idx * 0.06 }}
-              className="glass-card glass-card-hover p-6 rounded-2xl flex flex-col justify-between"
+              transition={{ duration: 0.5, delay: idx * 0.06 }}
+              className="polished-card p-6 rounded-3xl flex flex-col justify-between space-y-6 group"
             >
-              <div>
+              <div className="space-y-4">
                 {/* Header Icon & Year */}
-                <div className="flex items-center justify-between gap-2 mb-4">
-                  <div className="p-2.5 rounded-xl bg-amber-500/15 border border-amber-500/30 text-amber-400">
-                    <ShieldCheck className="w-6 h-6" />
+                <div className="flex items-center justify-between gap-2">
+                  <div className="p-2.5 rounded-2xl bg-white/[0.04] border border-white/10 text-white group-hover:scale-105 transition-transform">
+                    <ShieldCheck className="w-5 h-5 text-zinc-200" />
                   </div>
-                  <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900 border border-amber-900/40 text-xs font-mono text-amber-300">
-                    <Calendar className="w-3.5 h-3.5 text-amber-400" />
-                    <span>{cert.year}</span>
-                  </div>
+                  <span className="px-2.5 py-0.5 rounded-full bg-white/[0.03] border border-white/10 text-xs font-mono text-zinc-400">
+                    {cert.year}
+                  </span>
                 </div>
 
                 {/* Certification Title */}
-                <h3 className="text-lg font-bold text-white mb-2 leading-snug">
+                <h3 className="text-lg font-normal text-white group-hover:text-zinc-100 transition-colors leading-snug">
                   {cert.title}
                 </h3>
 
                 {/* Issuer */}
-                <p className="text-xs font-mono text-amber-400 mb-6 flex items-center gap-1.5">
-                  <CheckCircle className="w-3.5 h-3.5 text-amber-400" />
+                <p className="text-xs font-mono text-zinc-400 flex items-center gap-1.5">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-zinc-500" />
                   <span>Issuer: {cert.issuer}</span>
                 </p>
               </div>
 
-              {/* Verify Credential Button */}
-              <div>
+              {/* Action Button */}
+              <div className="pt-2 border-t border-white/5">
                 {cert.credentialUrl ? (
                   <a
                     href={cert.credentialUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full py-2.5 px-4 rounded-xl bg-slate-900 border border-amber-500/30 hover:border-amber-400 hover:bg-amber-950/40 text-amber-300 hover:text-amber-200 text-xs font-mono font-semibold flex items-center justify-center gap-2 transition-all shadow-sm"
+                    className="w-full py-2.5 px-4 rounded-full bg-white/[0.03] border border-white/10 hover:border-white/25 hover:bg-white/[0.08] text-zinc-200 text-xs font-mono flex items-center justify-center gap-2 transition-all shadow-sm"
                   >
                     <span>Verify Credential</span>
-                    <ExternalLink className="w-3.5 h-3.5" />
+                    <ArrowUpRight className="w-3.5 h-3.5 text-zinc-400" />
                   </a>
                 ) : (
-                  <button
-                    disabled
-                    className="w-full py-2.5 px-4 rounded-xl bg-slate-900/50 border border-slate-800/80 text-slate-500 text-xs font-mono font-medium flex items-center justify-center gap-2 cursor-not-allowed opacity-75"
-                  >
-                    <span>Issued Credential</span>
-                  </button>
+                  <span className="w-full py-2.5 px-4 rounded-full bg-white/[0.01] border border-white/5 text-zinc-600 text-xs font-mono flex items-center justify-center gap-2 cursor-default">
+                    <span>Verified Completion</span>
+                  </span>
                 )}
               </div>
             </motion.div>

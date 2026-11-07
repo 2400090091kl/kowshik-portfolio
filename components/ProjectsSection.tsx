@@ -1,7 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FolderGit2, ExternalLink, Calendar, Clock, CheckCircle2, Lock, ArrowUpRight } from "lucide-react";
+import {
+  ExternalLink,
+  CheckCircle2,
+  Lock,
+  ArrowUpRight,
+} from "lucide-react";
 import { PORTFOLIO_DATA } from "@/data/portfolioData";
 import { GithubIcon } from "./icons/SocialIcons";
 
@@ -9,146 +14,294 @@ export default function ProjectsSection() {
   const { projects } = PORTFOLIO_DATA;
 
   return (
-    <section id="projects" className="py-20 relative z-10">
+    <section id="projects" className="py-24 relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex items-center gap-3 mb-12">
-          <div className="p-2.5 rounded-xl bg-amber-500/15 border border-amber-500/30 text-amber-400">
-            <FolderGit2 className="w-6 h-6" />
-          </div>
-          <div>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
-              Featured Projects
-            </h2>
-            <p className="text-xs sm:text-sm text-amber-400 font-mono">
-              Software Solutions & Full-Stack Applications
-            </p>
-          </div>
-          <div className="flex-1 h-px bg-slate-800 ml-4 hidden sm:block" />
+        <div className="flex items-center gap-3 mb-4">
+          <h2 className="text-2xl sm:text-3xl font-light text-white tracking-tight">
+            Selected Work
+          </h2>
+          <span className="polished-count-badge">({projects.length})</span>
+          <div className="flex-1 h-px bg-white/10 ml-4 hidden sm:block" />
         </div>
+        <p className="text-sm sm:text-base text-zinc-400 font-light max-w-2xl mb-12">
+          Projects showcasing software engineering, cloud systems, and full-stack analytics with purpose.
+        </p>
 
-        {/* Project Cards Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        {/* Project Cards List */}
+        <div className="space-y-12">
           {projects.map((project, idx) => (
             <motion.div
               key={project.title}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="glass-card glass-card-hover p-6 sm:p-8 rounded-2xl flex flex-col justify-between relative overflow-hidden group"
+              transition={{ duration: 0.6, delay: idx * 0.1 }}
+              className="polished-card p-6 sm:p-10 rounded-3xl relative overflow-hidden group"
             >
-              {/* Card Decorative Accent */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/10 rounded-full blur-2xl pointer-events-none" />
+              {/* Subtle ambient gradient highlight */}
+              <div className="absolute top-0 right-0 w-80 h-80 bg-white/[0.02] rounded-full blur-3xl pointer-events-none" />
 
-              <div>
-                {/* Header Meta */}
-                <div className="flex items-center justify-between gap-4 mb-4">
-                  {project.year && (
-                    <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900 border border-amber-900/40 text-amber-300 font-mono text-xs">
-                      <Calendar className="w-3.5 h-3.5 text-amber-400" />
-                      <span>{project.year}</span>
-                    </div>
-                  )}
-                  {project.status && (
-                    <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-950/60 border border-amber-500/40 text-amber-300 font-mono text-xs">
-                      <Clock className="w-3.5 h-3.5 text-amber-400 animate-spin-slow" />
-                      <span>{project.status}</span>
-                    </div>
-                  )}
-                </div>
-
-                {/* Project Title */}
-                <h3 className="text-xl sm:text-2xl font-bold text-white mb-4 transition-colors">
-                  {project.githubUrl ? (
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:text-amber-300 inline-flex items-center gap-2 group-hover:text-amber-300 transition-colors"
-                    >
-                      <span>{project.title}</span>
-                      <ArrowUpRight className="w-5 h-5 text-amber-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                    </a>
-                  ) : (
-                    <span>{project.title}</span>
-                  )}
-                </h3>
-
-                {/* Description Bullets */}
-                <ul className="space-y-2.5 mb-6">
-                  {project.description.map((desc, dIdx) => (
-                    <li
-                      key={dIdx}
-                      className="flex items-start gap-2.5 text-slate-300 text-sm leading-relaxed"
-                    >
-                      <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
-                      <span>{desc}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Tech Badges & Action Buttons */}
-              <div className="pt-6 border-t border-slate-800/80 space-y-5">
-                {/* Tech Stack Chips */}
-                <div className="flex flex-wrap gap-2">
-                  {project.techStack.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-3 py-1 rounded-lg bg-slate-900 border border-amber-900/30 text-xs font-mono text-amber-300"
-                    >
-                      {tech}
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                {/* Left Column: Project Meta, Overview, Features & Stack */}
+                <div className="lg:col-span-7 space-y-6">
+                  {/* Category & Status Pill */}
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="px-3 py-1 rounded-full bg-white/[0.05] border border-white/10 text-xs font-mono text-zinc-300">
+                      {project.category || "Software Solution"}
                     </span>
-                  ))}
+                    {project.status && (
+                      <span className="px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-xs font-mono text-emerald-400 flex items-center gap-1.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                        {project.status}
+                      </span>
+                    )}
+                    {project.year && (
+                      <span className="px-3 py-1 rounded-full bg-white/[0.02] border border-white/5 text-xs font-mono text-zinc-500">
+                        {project.year}
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Project Title */}
+                  <div>
+                    <h3 className="text-2xl sm:text-3xl font-normal text-white group-hover:text-zinc-100 transition-colors">
+                      {project.title}
+                    </h3>
+                    {project.tagline && (
+                      <p className="text-sm font-mono text-zinc-400 mt-1.5">
+                        {project.tagline}
+                      </p>
+                    )}
+                  </div>
+
+                  {/* Main Description */}
+                  <div className="text-sm sm:text-base text-zinc-300 font-light leading-relaxed space-y-2">
+                    {project.description.map((desc, dIdx) => (
+                      <p key={dIdx}>{desc}</p>
+                    ))}
+                  </div>
+
+                  {/* Key Features Bullet Points */}
+                  {project.features && project.features.length > 0 && (
+                    <div className="space-y-2.5 pt-2">
+                      <div className="text-xs font-mono text-zinc-400 uppercase tracking-wider">
+                        Key Features & Architecture
+                      </div>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs sm:text-sm text-zinc-300 font-light">
+                        {project.features.map((feature, fIdx) => (
+                          <div key={fIdx} className="flex items-start gap-2">
+                            <CheckCircle2 className="w-3.5 h-3.5 text-zinc-400 shrink-0 mt-0.5" />
+                            <span>{feature}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Contribution if present */}
+                  {project.contribution && (
+                    <div className="p-3.5 rounded-2xl bg-white/[0.02] border border-white/5 text-xs text-zinc-300 font-mono space-y-1">
+                      <span className="text-zinc-400 uppercase tracking-wider block text-[10px]">
+                        My Contribution
+                      </span>
+                      <p className="font-sans text-xs text-zinc-300">
+                        {project.contribution}
+                      </p>
+                    </div>
+                  )}
+
+                  {/* Tech Stack Chips */}
+                  <div className="pt-2">
+                    <div className="text-xs font-mono text-zinc-500 uppercase tracking-wider mb-2">
+                      Technologies Used
+                    </div>
+                    <div className="flex flex-wrap gap-1.5">
+                      {project.techStack.map((tech) => (
+                        <span
+                          key={tech}
+                          className="px-2.5 py-1 rounded-lg bg-white/[0.03] border border-white/10 text-xs font-mono text-zinc-300"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Action Buttons */}
+                  <div className="flex flex-wrap items-center gap-3 pt-3">
+                    {project.githubUrl ? (
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-5 py-2.5 rounded-full bg-white text-black font-semibold text-xs font-mono flex items-center gap-2 hover:bg-zinc-200 transition-colors shadow-sm"
+                      >
+                        <GithubIcon className="w-3.5 h-3.5" />
+                        <span>View Repository</span>
+                        <ArrowUpRight className="w-3.5 h-3.5" />
+                      </a>
+                    ) : (
+                      <span className="px-5 py-2.5 rounded-full bg-zinc-900 border border-white/5 text-zinc-500 text-xs font-mono flex items-center gap-2 cursor-not-allowed">
+                        <Lock className="w-3.5 h-3.5" />
+                        <span>Repository Private</span>
+                      </span>
+                    )}
+
+                    {project.liveUrl ? (
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-5 py-2.5 rounded-full bg-white/[0.04] border border-white/15 hover:border-white/30 text-white text-xs font-mono flex items-center gap-2 transition-colors"
+                      >
+                        <ExternalLink className="w-3.5 h-3.5" />
+                        <span>Live Demo</span>
+                      </a>
+                    ) : (
+                      <span
+                        title="Demo link inactive until backend APIs are active"
+                        className="px-5 py-2.5 rounded-full bg-zinc-900 border border-white/5 text-zinc-500 text-xs font-mono flex items-center gap-1.5 cursor-not-allowed"
+                      >
+                        <Lock className="w-3.5 h-3.5" />
+                        <span>Live Demo Inactive</span>
+                      </span>
+                    )}
+                  </div>
                 </div>
 
-                {/* Action Buttons */}
-                <div className="flex items-center gap-3">
-                  {project.githubUrl ? (
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex-1 py-2.5 px-4 rounded-xl bg-amber-950/60 border border-amber-500/40 hover:border-amber-400 hover:bg-amber-900/80 text-amber-300 hover:text-amber-200 text-xs font-mono font-semibold flex items-center justify-center gap-2 transition-all shadow-sm"
-                    >
-                      <GithubIcon className="w-4 h-4 text-amber-400" />
-                      <span>View Repository</span>
-                      <ArrowUpRight className="w-3.5 h-3.5 ml-auto text-amber-400" />
-                    </a>
-                  ) : (
-                    <button
-                      disabled
-                      title="Code repository placeholder"
-                      className="flex-1 py-2.5 px-4 rounded-xl bg-slate-900/60 border border-slate-800/80 text-slate-500 text-xs font-mono font-medium flex items-center justify-center gap-2 cursor-not-allowed opacity-75"
-                    >
-                      <GithubIcon className="w-4 h-4" />
-                      <span>Repository Private</span>
-                      <Lock className="w-3 h-3 ml-auto text-slate-600" />
-                    </button>
-                  )}
+                {/* Right Column: Custom Visual Telemetry / UI Mockup for Each Project */}
+                <div className="lg:col-span-5 w-full">
+                  <div className="rounded-2xl p-4 bg-zinc-950/90 border border-white/10 shadow-2xl space-y-4 font-mono text-xs">
+                    {/* Window Top Controls */}
+                    <div className="flex items-center justify-between pb-3 border-b border-white/10 text-zinc-400">
+                      <div className="flex items-center gap-2">
+                        <span className="w-2.5 h-2.5 rounded-full bg-zinc-700" />
+                        <span className="w-2.5 h-2.5 rounded-full bg-zinc-700" />
+                        <span className="w-2.5 h-2.5 rounded-full bg-zinc-700" />
+                        <span className="ml-1 text-[11px] text-zinc-400">
+                          {idx === 0 ? "matchmind.telemetry.ui" : idx === 1 ? "azure.monitor.kql" : "sensor.telemetry.h"}
+                        </span>
+                      </div>
+                      <span className="text-[10px] text-emerald-400 px-2 py-0.5 rounded bg-emerald-500/10">
+                        {idx === 0 ? "FastAPI / React" : idx === 1 ? "Azure Cloud" : "IoT Microcontroller"}
+                      </span>
+                    </div>
 
-                  {project.liveUrl ? (
-                    <a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex-1 py-2.5 px-4 rounded-xl bg-amber-950/60 border border-amber-500/40 hover:border-amber-400 hover:bg-amber-900/80 text-amber-300 text-xs font-mono font-semibold flex items-center justify-center gap-2 transition-all"
-                    >
-                      <ExternalLink className="w-4 h-4 text-amber-400" />
-                      <span>Live Demo</span>
-                    </a>
-                  ) : (
-                    <button
-                      disabled
-                      title="Live demo placeholder"
-                      className="flex-1 py-2.5 px-4 rounded-xl bg-slate-900/60 border border-slate-800/80 text-slate-500 text-xs font-mono font-medium flex items-center justify-center gap-2 cursor-not-allowed opacity-75"
-                    >
-                      <ExternalLink className="w-4 h-4" />
-                      <span>Live Demo</span>
-                      <Lock className="w-3 h-3 ml-auto text-slate-600" />
-                    </button>
-                  )}
+                    {/* Specific Mockup Content based on project */}
+                    {idx === 0 && (
+                      <div className="space-y-3 font-mono text-xs">
+                        <div className="p-3 rounded-xl bg-white/[0.02] border border-white/5 space-y-2">
+                          <div className="flex items-center justify-between text-zinc-400 text-[11px]">
+                            <span>Match Event Telemetry</span>
+                            <span className="text-emerald-400 flex items-center gap-1">
+                              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
+                              Live Ingestion
+                            </span>
+                          </div>
+                          <div className="grid grid-cols-2 gap-2 text-center text-xs">
+                            <div className="p-2 rounded bg-black/40 border border-white/5">
+                              <span className="text-zinc-500 block text-[10px]">Arsenal</span>
+                              <span className="text-sm font-bold text-white">49% Poss</span>
+                            </div>
+                            <div className="p-2 rounded bg-black/40 border border-white/5">
+                              <span className="text-zinc-500 block text-[10px]">Man City</span>
+                              <span className="text-sm font-bold text-white">51% Poss</span>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="p-3 rounded-xl bg-white/[0.02] border border-white/5 space-y-1.5 text-[11px]">
+                          <div className="flex justify-between text-zinc-400">
+                            <span>Analyst / Fan Dual Mode</span>
+                            <span className="text-zinc-300">Active</span>
+                          </div>
+                          <div className="flex justify-between text-zinc-400">
+                            <span>Broadcast Overlay</span>
+                            <span className="text-zinc-300">Synchronized</span>
+                          </div>
+                          <div className="flex justify-between text-zinc-400">
+                            <span>REST Ingestion Endpoint</span>
+                            <span className="text-emerald-400 font-mono">/api/custom-matches</span>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+
+                    {idx === 1 && (
+                      <div className="space-y-3 font-mono text-xs">
+                        <div className="p-3 rounded-xl bg-white/[0.02] border border-white/5 space-y-2">
+                          <div className="flex items-center justify-between text-zinc-400 text-[11px]">
+                            <span>Azure VM Health Status</span>
+                            <span className="text-emerald-400">Online 99.98%</span>
+                          </div>
+                          <div className="space-y-1.5">
+                            <div>
+                              <div className="flex justify-between text-[10px] text-zinc-400 mb-0.5">
+                                <span>CPU Utilization</span>
+                                <span>42% (Threshold: 80%)</span>
+                              </div>
+                              <div className="w-full h-1.5 rounded-full bg-zinc-800 overflow-hidden">
+                                <div className="h-full bg-emerald-400 w-[42%]" />
+                              </div>
+                            </div>
+                            <div>
+                              <div className="flex justify-between text-[10px] text-zinc-400 mb-0.5">
+                                <span>Memory Availability</span>
+                                <span>68% Available</span>
+                              </div>
+                              <div className="w-full h-1.5 rounded-full bg-zinc-800 overflow-hidden">
+                                <div className="h-full bg-cyan-400 w-[68%]" />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="p-3 rounded-xl bg-black/50 border border-white/5 text-[11px] text-zinc-400 space-y-1">
+                          <span className="text-zinc-500 block text-[10px]">{"// KQL Alert Query:"}</span>
+                          <p className="text-amber-300/90 font-mono">
+                            Perf | where CounterName == &quot;% Processor Time&quot; | summarize avg(CounterValue) by bin(TimeGenerated, 5m)
+                          </p>
+                        </div>
+                      </div>
+                    )}
+
+                    {idx === 2 && (
+                      <div className="space-y-3 font-mono text-xs">
+                        <div className="p-3 rounded-xl bg-white/[0.02] border border-white/5 space-y-2">
+                          <div className="flex items-center justify-between text-zinc-400 text-[11px]">
+                            <span>Ultrasonic Proximity Range</span>
+                            <span className="text-amber-400">Monitoring</span>
+                          </div>
+                          <div className="p-2.5 rounded bg-black/40 border border-white/5 flex items-center justify-between text-xs">
+                            <span className="text-zinc-400">Impact Proximity</span>
+                            <span className="text-emerald-400 font-bold">&lt; 15 cm</span>
+                          </div>
+                        </div>
+
+                        <div className="p-3 rounded-xl bg-white/[0.02] border border-white/5 space-y-1.5 text-[11px] text-zinc-400">
+                          <div className="flex justify-between">
+                            <span>Controller Response Time</span>
+                            <span className="text-white">40 ms</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span>Servo Brake Actuation</span>
+                            <span className="text-emerald-400">Automated</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span>Emergency Warning Alert</span>
+                            <span className="text-amber-400">Instant Telemetry</span>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Window Bottom Status */}
+                    <div className="pt-2 border-t border-white/10 flex items-center justify-between text-[11px] text-zinc-500">
+                      <span>Status: Verified & Operational</span>
+                      <span className="text-zinc-400">P. Kumara Veera Kowshik</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </motion.div>

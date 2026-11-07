@@ -11,62 +11,88 @@ export default function Footer() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const navLinks = [
+    { name: "Home", href: "#home" },
+    { name: "About", href: "#about" },
+    { name: "Work", href: "#projects" },
+    { name: "What I Do", href: "#skills" },
+    { name: "Experience", href: "#experience" },
+    { name: "Education", href: "#education" },
+    { name: "Contact", href: "#contact" },
+  ];
+
   return (
-    <footer className="relative z-10 border-t border-slate-800/80 bg-slate-950/90 py-12 text-slate-400">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-slate-800/60">
+    <footer className="relative z-10 border-t border-white/10 bg-black/60 backdrop-blur-xl py-14 text-zinc-400">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-8 border-b border-white/5">
           {/* Personal Info */}
-          <div className="text-center md:text-left space-y-1">
-            <h3 className="text-lg font-bold text-white tracking-wide">
+          <div className="space-y-1">
+            <h3 className="text-xl font-normal text-white">
               {personal.name}
             </h3>
-            <p className="text-xs sm:text-sm font-mono text-amber-400">
-              {personal.role} <span className="text-slate-600">|</span> {personal.subRole}
+            <p className="text-xs sm:text-sm font-mono text-zinc-400">
+              {personal.role} <span className="text-zinc-600">·</span> {personal.university}
             </p>
           </div>
 
-          {/* Social Links */}
-          <div className="flex items-center gap-4">
+          {/* Quick Nav Links */}
+          <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-zinc-400">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                className="hover:text-white transition-colors"
+              >
+                {link.name}
+              </a>
+            ))}
+          </div>
+
+          {/* Social Links & Back to Top */}
+          <div className="flex items-center gap-2">
             <a
               href={personal.contact.github}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="GitHub"
-              className="p-2.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:text-amber-400 hover:border-amber-500/40 transition-all"
+              aria-label="GitHub Profile"
+              className="p-2.5 rounded-full bg-white/[0.03] border border-white/10 text-zinc-300 hover:text-white hover:border-white/20 transition-all"
             >
-              <GithubIcon className="w-5 h-5" />
+              <GithubIcon className="w-4 h-4" />
             </a>
             <a
               href={personal.contact.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="LinkedIn"
-              className="p-2.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:text-amber-400 hover:border-amber-500/40 transition-all"
+              aria-label="LinkedIn Profile"
+              className="p-2.5 rounded-full bg-white/[0.03] border border-white/10 text-zinc-300 hover:text-white hover:border-white/20 transition-all"
             >
-              <LinkedinIcon className="w-5 h-5" />
+              <LinkedinIcon className="w-4 h-4" />
             </a>
             <a
               href={`mailto:${personal.contact.email}`}
-              aria-label="Email"
-              className="p-2.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:text-amber-400 hover:border-amber-500/40 transition-all"
+              aria-label="Send Email"
+              className="p-2.5 rounded-full bg-white/[0.03] border border-white/10 text-zinc-300 hover:text-white hover:border-white/20 transition-all"
             >
-              <Mail className="w-5 h-5" />
+              <Mail className="w-4 h-4" />
             </a>
 
-            {/* Back to Top button */}
+            {/* Back to top */}
             <button
               onClick={scrollToTop}
               aria-label="Scroll to top"
-              className="p-2.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:text-amber-400 hover:border-amber-500/40 transition-all ml-2"
+              className="p-2.5 rounded-full bg-white/[0.05] border border-white/15 text-zinc-300 hover:text-white hover:bg-white/10 transition-all ml-2"
             >
-              <ArrowUp className="w-5 h-5" />
+              <ArrowUp className="w-4 h-4" />
             </button>
           </div>
         </div>
 
-        {/* Bottom Copyright Notice */}
-        <div className="pt-8 text-center text-xs font-mono text-slate-500">
+        {/* Bottom Copyright */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-zinc-500">
           <p>© 2026 {personal.name}. All rights reserved.</p>
+          <p className="text-[11px] text-zinc-600">
+            Engineered with Next.js, TypeScript &amp; Framer Motion
+          </p>
         </div>
       </div>
     </footer>

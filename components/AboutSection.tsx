@@ -1,107 +1,123 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { User, Code, Database, Cloud, Cpu, Layers, Users2, Lightbulb } from "lucide-react";
+import { Building2, Target, CheckCircle2 } from "lucide-react";
 import { PORTFOLIO_DATA } from "@/data/portfolioData";
 
 export default function AboutSection() {
-  const { personal } = PORTFOLIO_DATA;
+  const { personal, education } = PORTFOLIO_DATA;
 
-  const focusIcons = [
-    { name: "Computer Science & Information Technology (CSIT)", icon: Cpu },
-    { name: "Full-stack development", icon: Layers },
-    { name: "Backend development", icon: Code },
-    { name: "Cloud technologies", icon: Cloud },
-    { name: "Databases", icon: Database },
-    { name: "Problem solving", icon: Lightbulb },
-    { name: "Technical clubs and leadership", icon: Users2 },
+  const keyMetrics = [
+    { label: "Cumulative GPA", value: education.cgpa, detail: "KL University Academics" },
+    { label: "Academic Program", value: "B.Tech CSIT", detail: "2024 – 2028 (Expected)" },
+    { label: "Verified Credentials", value: "5 Certifications", detail: "Oracle OCI, AWS, Google" },
+    { label: "Campus Leadership", value: "Club President", detail: "ForensiXplore Club" },
   ];
 
   return (
-    <section id="about" className="py-20 relative z-10">
+    <section id="about" className="py-24 relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex items-center gap-3 mb-12">
-          <div className="p-2.5 rounded-xl bg-amber-500/15 border border-amber-500/30 text-amber-400">
-            <User className="w-6 h-6" />
-          </div>
-          <div>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
-              About Me
-            </h2>
-            <p className="text-xs sm:text-sm text-amber-400 font-mono">
-              Background, Interests & Focus Areas
-            </p>
-          </div>
-          <div className="flex-1 h-px bg-slate-800 ml-4 hidden sm:block" />
+          <h2 className="text-2xl sm:text-3xl font-light text-white tracking-tight">
+            About Me
+          </h2>
+          <span className="polished-count-badge">(01)</span>
+          <div className="flex-1 h-px bg-white/10 ml-4 hidden sm:block" />
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* Main About Text Card */}
+          {/* Main Editorial Card */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-7 glass-card glass-card-hover p-6 sm:p-8 rounded-2xl relative overflow-hidden"
+            className="lg:col-span-7 polished-card p-6 sm:p-8 rounded-3xl relative overflow-hidden space-y-6"
           >
-            <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/10 rounded-full blur-2xl pointer-events-none" />
-            
-            <h3 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
-              <span className="text-amber-400 font-mono">&gt;</span> Academic & Developer Profile
-            </h3>
+            <div className="space-y-4">
+              <span className="text-xs font-mono uppercase tracking-wider text-zinc-400">
+                A little about me
+              </span>
+              <p className="text-lg sm:text-xl text-zinc-200 font-light leading-relaxed">
+                &ldquo;{personal.aboutBio}&rdquo;
+              </p>
+            </div>
 
-            <p className="text-slate-300 text-base leading-relaxed mb-6">
-              {personal.aboutBio}
-            </p>
+            {/* University & Career Objective Details */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-white/10">
+              <div className="p-4 rounded-2xl bg-white/[0.02] border border-white/5 space-y-1">
+                <div className="flex items-center gap-2 text-xs font-mono text-zinc-400">
+                  <Building2 className="w-3.5 h-3.5 text-zinc-300" />
+                  <span>University</span>
+                </div>
+                <div className="text-sm font-semibold text-white">
+                  {personal.university}
+                </div>
+                <div className="text-xs text-zinc-400 font-mono">
+                  {personal.academicYear} · {education.duration}
+                </div>
+              </div>
 
-            <div className="p-4 rounded-xl bg-slate-900/80 border border-amber-900/40 text-sm text-slate-300 font-mono space-y-2">
-              <div className="flex items-center justify-between border-b border-slate-800/80 pb-2">
-                <span className="text-slate-400">University</span>
-                <span className="text-amber-300 font-semibold">{personal.university}</span>
-              </div>
-              <div className="flex items-center justify-between border-b border-slate-800/80 pb-2">
-                <span className="text-slate-400">Degree</span>
-                <span className="text-slate-200">B.Tech in CSIT</span>
-              </div>
-              <div className="flex items-center justify-between">
-                <span className="text-slate-400">Duration</span>
-                <span className="text-amber-400 font-semibold">2024 – 2028 (Expected)</span>
+              <div className="p-4 rounded-2xl bg-white/[0.02] border border-white/5 space-y-1">
+                <div className="flex items-center gap-2 text-xs font-mono text-zinc-400">
+                  <Target className="w-3.5 h-3.5 text-emerald-400" />
+                  <span>Career Objective</span>
+                </div>
+                <div className="text-sm font-semibold text-white">
+                  Software Engineering Internships
+                </div>
+                <div className="text-xs text-emerald-400 font-mono flex items-center gap-1">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                  Open for opportunities
+                </div>
               </div>
             </div>
-          </motion.div>
 
-          {/* Focus Areas Card */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="lg:col-span-5 glass-card p-6 sm:p-8 rounded-2xl border-amber-900/30"
-          >
-            <h3 className="text-xl font-semibold text-white mb-6 flex items-center gap-2">
-              <span className="text-amber-400 font-mono">#</span> Core Focus & Interests
-            </h3>
-
-            <div className="flex flex-wrap gap-2.5">
-              {focusIcons.map((item, idx) => {
-                const IconComponent = item.icon;
-                return (
-                  <motion.div
-                    key={item.name}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.3, delay: idx * 0.05 }}
-                    className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-900/90 border border-slate-800 hover:border-amber-500/40 hover:bg-slate-800/80 transition-all text-xs sm:text-sm font-medium text-slate-200 group"
+            {/* Core Focus Badges */}
+            <div className="space-y-3 pt-2">
+              <div className="text-xs font-mono text-zinc-400 uppercase tracking-wider">
+                Core Engineering Focus Areas
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {personal.focusAreas.map((area) => (
+                  <span
+                    key={area}
+                    className="px-3 py-1.5 rounded-full bg-white/[0.03] border border-white/10 text-xs text-zinc-300 flex items-center gap-1.5 hover:border-white/20 transition-colors"
                   >
-                    <IconComponent className="w-4 h-4 text-amber-400 group-hover:scale-110 transition-transform" />
-                    <span>{item.name}</span>
-                  </motion.div>
-                );
-              })}
+                    <CheckCircle2 className="w-3 h-3 text-zinc-400" />
+                    <span>{area}</span>
+                  </span>
+                ))}
+              </div>
             </div>
           </motion.div>
+
+          {/* Right Column: 4-Metric Grid */}
+          <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {keyMetrics.map((metric, idx) => (
+              <motion.div
+                key={metric.label}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.08 }}
+                className="polished-card p-5 rounded-2xl flex flex-col justify-between space-y-3"
+              >
+                <div className="text-xs font-mono text-zinc-400 uppercase tracking-wider">
+                  {metric.label}
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-white tracking-tight">
+                    {metric.value}
+                  </div>
+                  <div className="text-xs text-zinc-400 font-mono mt-1">
+                    {metric.detail}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

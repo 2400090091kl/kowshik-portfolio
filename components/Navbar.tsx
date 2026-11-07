@@ -1,152 +1,120 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Code2 } from "lucide-react";
+import { motion } from "framer-motion";
+import {
+  Home,
+  User,
+  Briefcase,
+  Layers,
+  Clock,
+  Award,
+  Mail,
+  ArrowUpRight,
+} from "lucide-react";
 import { PORTFOLIO_DATA } from "@/data/portfolioData";
 
-const navLinks = [
-  { name: "Home", href: "#home" },
-  { name: "About", href: "#about" },
-  { name: "Skills", href: "#skills" },
-  { name: "Experience", href: "#experience" },
-  { name: "Projects", href: "#projects" },
-  { name: "Certifications", href: "#certifications" },
-  { name: "Leadership", href: "#leadership" },
-  { name: "Contact", href: "#contact" },
+const navItems = [
+  { name: "Home", href: "#home", icon: Home },
+  { name: "About", href: "#about", icon: User },
+  { name: "Work", href: "#projects", icon: Briefcase },
+  { name: "What I Do", href: "#skills", icon: Layers },
+  { name: "Experience", href: "#experience", icon: Clock },
+  { name: "Education", href: "#education", icon: Award },
+  { name: "Contact", href: "#contact", icon: Mail },
 ];
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const [hoveredTab, setHoveredTab] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      const scrollPosition = window.scrollY + 250;
+      const sectionIds = navItems.map((item) => item.href.substring(1));
 
-      const sections = navLinks.map((link) => link.href.substring(1));
-      const scrollPosition = window.scrollY + 200;
-
-      for (const section of sections) {
-        const el = document.getElementById(section);
+      for (const id of sectionIds) {
+        const el = document.getElementById(id);
         if (el) {
           const top = el.offsetTop;
           const height = el.offsetHeight;
           if (scrollPosition >= top && scrollPosition < top + height) {
-            setActiveSection(section);
+            setActiveSection(id);
             break;
           }
         }
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-slate-950/85 backdrop-blur-xl border-b border-amber-900/40 shadow-lg shadow-amber-950/20 py-3"
-          : "bg-transparent py-5"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        {/* Brand Logo */}
+    <header className="fixed top-4 sm:top-6 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none">
+      <nav className="polished-dock rounded-full px-2 sm:px-3 py-1.5 sm:py-2 flex items-center gap-1 sm:gap-1.5 shadow-2xl pointer-events-auto max-w-full overflow-x-auto no-scrollbar">
+        {/* Brand Chip */}
         <a
           href="#home"
-          className="flex items-center gap-2 text-xl font-bold tracking-wider text-white group"
+          className="flex items-center gap-2 pl-2 pr-3 py-1 text-xs font-mono font-bold tracking-wider text-white hover:text-zinc-300 transition-colors border-r border-white/10 shrink-0"
         >
-          <div className="w-9 h-9 rounded-lg bg-amber-500/15 border border-amber-500/40 flex items-center justify-center text-amber-400 group-hover:border-amber-400 group-hover:bg-amber-500/20 transition-all duration-300 shadow-sm shadow-amber-500/20">
-            <Code2 className="w-5 h-5 text-amber-400" />
-          </div>
-          <span className="font-mono text-gradient font-extrabold tracking-widest">
-            {PORTFOLIO_DATA.personal.shortName}
-          </span>
+          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+          <span>{PORTFOLIO_DATA.personal.shortName}</span>
         </a>
 
-        {/* Desktop Navigation Links */}
-        <nav className="hidden lg:flex items-center space-x-1 xl:space-x-2 bg-slate-900/60 backdrop-blur-xl px-4 py-1.5 rounded-full border border-amber-500/20 shadow-inner">
-          {navLinks.map((link) => {
-            const isActive = activeSection === link.href.substring(1);
+        {/* Dock Nav Buttons */}
+        <div className="flex items-center gap-0.5 sm:gap-1">
+          {navItems.map((item) => {
+            const Icon = item.icon;
+            const isActive = activeSection === item.href.substring(1);
+            const isHovered = hoveredTab === item.name;
+
             return (
               <a
-                key={link.name}
-                href={link.href}
-                className={`relative px-3.5 py-1.5 text-xs xl:text-sm font-medium rounded-full transition-all duration-200 ${
+                key={item.name}
+                href={item.href}
+                onMouseEnter={() => setHoveredTab(item.name)}
+                onMouseLeave={() => setHoveredTab(null)}
+                className={`relative px-2.5 sm:px-3.5 py-1.5 rounded-full text-xs font-medium transition-all duration-200 flex items-center gap-1.5 shrink-0 ${
                   isActive
-                    ? "text-amber-300 font-semibold"
-                    : "text-slate-300 hover:text-amber-300 hover:bg-amber-950/40"
+                    ? "text-white"
+                    : "text-zinc-400 hover:text-zinc-200"
                 }`}
               >
+                {/* Active Bubble Pill Indicator */}
                 {isActive && (
                   <motion.span
-                    layoutId="activeNavTab"
-                    className="absolute inset-0 bg-gradient-to-r from-amber-500/20 to-amber-500/20 rounded-full border border-amber-400/40"
-                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                    layoutId="activeDockBubble"
+                    className="absolute inset-0 bg-white/10 rounded-full border border-white/15 shadow-sm"
+                    transition={{ type: "spring", stiffness: 400, damping: 30 }}
                   />
                 )}
-                <span className="relative z-10">{link.name}</span>
+
+                {/* Hover effect when not active */}
+                {!isActive && isHovered && (
+                  <motion.span
+                    layoutId="hoverDockBubble"
+                    className="absolute inset-0 bg-white/[0.05] rounded-full"
+                    transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                  />
+                )}
+
+                <Icon className="w-3.5 h-3.5 relative z-10 shrink-0" />
+                <span className="relative z-10 hidden md:inline">{item.name}</span>
               </a>
             );
           })}
-        </nav>
-
-        {/* Contact CTA desktop */}
-        <div className="hidden lg:block">
-          <a
-            href="#contact"
-            className="px-4 py-2 text-xs font-semibold rounded-xl bg-gradient-to-r from-amber-600 via-amber-500 to-amber-600 text-white hover:opacity-95 transition-all duration-200 shadow-md shadow-amber-500/25 flex items-center gap-1.5 font-mono"
-          >
-            Get In Touch
-          </a>
         </div>
 
-        {/* Mobile Hamburger Toggle */}
-        <button
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="lg:hidden p-2 rounded-xl bg-slate-900 border border-amber-500/30 text-slate-300 hover:text-amber-400 focus:outline-none"
-          aria-label="Toggle menu"
+        {/* Quick CTA */}
+        <a
+          href="#contact"
+          className="ml-1 pl-2.5 pr-3 py-1 rounded-full bg-white text-black hover:bg-zinc-200 text-xs font-mono font-semibold transition-all flex items-center gap-1 shadow-sm shrink-0"
         >
-          {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
-      </div>
-
-      {/* Mobile Menu Dropdown */}
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-slate-950/95 border-b border-amber-900/40 backdrop-blur-xl"
-          >
-            <div className="px-4 pt-3 pb-6 space-y-1">
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block px-3 py-2.5 text-base font-medium text-slate-300 hover:text-amber-300 hover:bg-amber-950/40 rounded-lg transition-colors"
-                >
-                  {link.name}
-                </a>
-              ))}
-              <div className="pt-3">
-                <a
-                  href="#contact"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block w-full text-center py-3 text-sm font-semibold rounded-xl bg-gradient-to-r from-amber-600 to-amber-500 text-white"
-                >
-                  Get In Touch
-                </a>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          <span className="hidden sm:inline">Let&apos;s Talk</span>
+          <ArrowUpRight className="w-3.5 h-3.5" />
+        </a>
+      </nav>
     </header>
   );
 }
