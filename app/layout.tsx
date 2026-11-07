@@ -19,9 +19,10 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://kowshik-4402-portfolio.vercel.app"),
   title: "P. Kumara Veera Kowshik | Computer Science & IT (CSIT) Student",
   description:
-    "Personal portfolio of P. Kumara Veera Kowshik, a Computer Science and Information Technology (CSIT) student and aspiring software engineer at KL University.",
+    "Personal portfolio of P. Kumara Veera Kowshik, a 3rd-year Computer Science and Information Technology (CSIT) student and aspiring software engineer at KL University.",
   keywords: [
     "P. Kumara Veera Kowshik",
     "Kowshik Parsha",
@@ -38,16 +39,26 @@ export const metadata: Metadata = {
   openGraph: {
     title: "P. Kumara Veera Kowshik | Portfolio",
     description:
-      "Computer Science and Information Technology Student | Aspiring Software Engineer at KL University.",
+      "3rd-Year Computer Science and Information Technology Student | Aspiring Software Engineer at KL University.",
+    url: "https://kowshik-4402-portfolio.vercel.app",
     type: "website",
     locale: "en_US",
     siteName: "P. Kumara Veera Kowshik Portfolio",
+    images: [
+      {
+        url: "/profile.jpeg",
+        width: 699,
+        height: 927,
+        alt: "P. Kumara Veera Kowshik - Portfolio",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "P. Kumara Veera Kowshik | Portfolio",
     description:
-      "Computer Science and Information Technology Student | Aspiring Software Engineer at KL University.",
+      "3rd-Year Computer Science and Information Technology Student | Aspiring Software Engineer at KL University.",
+    images: ["/profile.jpeg"],
   },
   robots: {
     index: true,
