@@ -93,20 +93,20 @@ export default function ExperienceSection() {
                 className="relative group"
               >
                 {/* Pulsing Checkpoint Node on the rail */}
-                <div className="absolute -left-[31px] sm:-left-[47px] top-7 w-3.5 h-3.5 rounded-full bg-black border-2 border-white/40 group-hover:border-emerald-400 group-hover:scale-125 transition-all shadow-[0_0_10px_rgba(255,255,255,0.2)]" />
+                <div className="absolute -left-[31px] sm:-left-[47px] top-7 w-4 h-4 rounded-full bg-zinc-950/80 backdrop-blur-md border-2 border-white/50 group-hover:border-cyan-400 group-hover:scale-125 transition-all shadow-[0_0_12px_rgba(255,255,255,0.3)] group-hover:shadow-[0_0_20px_rgba(56,189,248,0.6)]" />
 
                 <motion.div
                   whileHover={shouldReduceMotion ? {} : { y: -3, transition: { duration: 0.2 } }}
-                  className="polished-card p-6 sm:p-8 lg:p-10 rounded-3xl relative space-y-5"
+                  className="polished-card glass-sheen p-6 sm:p-8 lg:p-10 rounded-3xl relative space-y-5"
                 >
-                  <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 border-b border-white/5 pb-4">
-                    <div className="space-y-1.5">
+                  <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 border-b border-white/10 pb-4">
+                    <div className="space-y-2">
                       <div className="flex flex-wrap items-center gap-2">
-                        <span className="px-3 py-0.5 rounded-full bg-white/[0.04] border border-white/10 text-xs font-mono text-zinc-300 flex items-center gap-1.5">
-                          <ItemIcon className="w-3 h-3 text-zinc-400" />
+                        <span className="glass-chip px-3 py-1 rounded-full text-xs font-mono text-zinc-200 flex items-center gap-1.5">
+                          <ItemIcon className="w-3.5 h-3.5 text-zinc-300" />
                           <span>{item.tag}</span>
                         </span>
-                        <span className="text-xs font-mono text-zinc-500">
+                        <span className="text-xs font-mono text-zinc-400 glass-chip px-2.5 py-0.5 rounded-full">
                           {item.duration}
                         </span>
                       </div>
@@ -128,7 +128,7 @@ export default function ExperienceSection() {
                           key={bulletIdx}
                           className="flex items-start gap-3 text-zinc-300 text-xs sm:text-sm lg:text-[0.925rem] font-light leading-relaxed"
                         >
-                          <CheckCircle2 className="w-4 h-4 text-zinc-500 shrink-0 mt-1" />
+                          <CheckCircle2 className="w-4 h-4 text-emerald-400/90 shrink-0 mt-1" />
                           <span>
                             {hasUrl
                               ? bullet.split(/(https?:\/\/[^\s]+)/g).map((part, pIdx) =>
@@ -138,7 +138,7 @@ export default function ExperienceSection() {
                                       href={part}
                                       target="_blank"
                                       rel="noopener noreferrer"
-                                      className="text-white hover:underline underline-offset-2 font-mono break-all inline-flex items-center gap-1 transition-colors focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:outline-none"
+                                      className="text-white hover:text-cyan-300 underline underline-offset-2 font-mono break-all inline-flex items-center gap-1 transition-colors focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:outline-none"
                                     >
                                       <span>{part}</span>
                                       <ArrowUpRight className="w-3.5 h-3.5 text-zinc-400" />

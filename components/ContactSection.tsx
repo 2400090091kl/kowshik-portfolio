@@ -74,7 +74,7 @@ export default function ContactSection() {
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-5 space-y-6"
           >
-            <div className="polished-card p-6 sm:p-8 lg:p-10 rounded-3xl space-y-6">
+            <div className="polished-card glass-sheen p-6 sm:p-8 lg:p-10 rounded-3xl space-y-6">
               <div className="space-y-2">
                 <span className="text-xs font-mono text-zinc-500 uppercase tracking-wider block">
                   Communication Channels
@@ -91,11 +91,11 @@ export default function ContactSection() {
               <div className="space-y-3 pt-2">
                 {/* Email Card */}
                 <motion.div
-                  whileHover={shouldReduceMotion ? {} : { y: -2, borderColor: "rgba(255,255,255,0.2)" }}
-                  className="p-4 rounded-2xl bg-white/[0.02] border border-white/5 flex items-center justify-between gap-3 transition-colors"
+                  whileHover={shouldReduceMotion ? {} : { y: -2, borderColor: "rgba(255,255,255,0.3)" }}
+                  className="p-4 rounded-2xl glass-chip flex items-center justify-between gap-3 transition-all"
                 >
                   <div className="flex items-center gap-3.5 min-w-0">
-                    <div className="p-3 rounded-xl bg-white/[0.04] text-white">
+                    <div className="p-3 rounded-xl bg-white/[0.06] backdrop-blur-md border border-white/10 text-white">
                       <Mail className="w-4 h-4 text-zinc-300" />
                     </div>
                     <div className="min-w-0">
@@ -124,11 +124,11 @@ export default function ContactSection() {
 
                 {/* Phone Card */}
                 <motion.div
-                  whileHover={shouldReduceMotion ? {} : { y: -2, borderColor: "rgba(255,255,255,0.2)" }}
-                  className="p-4 rounded-2xl bg-white/[0.02] border border-white/5 flex items-center justify-between gap-3 transition-colors"
+                  whileHover={shouldReduceMotion ? {} : { y: -2, borderColor: "rgba(255,255,255,0.3)" }}
+                  className="p-4 rounded-2xl glass-chip flex items-center justify-between gap-3 transition-all"
                 >
                   <div className="flex items-center gap-3.5">
-                    <div className="p-3 rounded-xl bg-white/[0.04] text-white">
+                    <div className="p-3 rounded-xl bg-white/[0.06] backdrop-blur-md border border-white/10 text-white">
                       <Phone className="w-4 h-4 text-zinc-300" />
                     </div>
                     <div>
@@ -157,14 +157,14 @@ export default function ContactSection() {
 
                 {/* LinkedIn Card */}
                 <motion.a
-                  whileHover={shouldReduceMotion ? {} : { y: -2, borderColor: "rgba(255,255,255,0.2)" }}
+                  whileHover={shouldReduceMotion ? {} : { y: -2, borderColor: "rgba(255,255,255,0.3)" }}
                   href={contact.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-4 rounded-2xl bg-white/[0.02] border border-white/5 flex items-center justify-between gap-3 transition-colors group focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:outline-none"
+                  className="p-4 rounded-2xl glass-chip flex items-center justify-between gap-3 transition-all group focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:outline-none"
                 >
                   <div className="flex items-center gap-3.5 min-w-0">
-                    <div className="p-3 rounded-xl bg-white/[0.04] text-white">
+                    <div className="p-3 rounded-xl bg-white/[0.06] backdrop-blur-md border border-white/10 text-white">
                       <LinkedinIcon className="w-4 h-4 text-zinc-300" />
                     </div>
                     <div className="min-w-0">
@@ -181,14 +181,14 @@ export default function ContactSection() {
 
                 {/* GitHub Card */}
                 <motion.a
-                  whileHover={shouldReduceMotion ? {} : { y: -2, borderColor: "rgba(255,255,255,0.2)" }}
+                  whileHover={shouldReduceMotion ? {} : { y: -2, borderColor: "rgba(255,255,255,0.3)" }}
                   href={contact.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-4 rounded-2xl bg-white/[0.02] border border-white/5 flex items-center justify-between gap-3 transition-colors group focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:outline-none"
+                  className="p-4 rounded-2xl glass-chip flex items-center justify-between gap-3 transition-all group focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:outline-none"
                 >
                   <div className="flex items-center gap-3.5 min-w-0">
-                    <div className="p-3 rounded-xl bg-white/[0.04] text-white">
+                    <div className="p-3 rounded-xl bg-white/[0.06] backdrop-blur-md border border-white/10 text-white">
                       <GithubIcon className="w-4 h-4 text-zinc-300" />
                     </div>
                     <div className="min-w-0">
@@ -205,8 +205,8 @@ export default function ContactSection() {
               </div>
 
               {/* Reply Promise Note */}
-              <div className="pt-2 text-xs font-mono text-zinc-500 flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              <div className="pt-2 text-xs font-mono text-zinc-400 flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(52,211,153,0.8)]" />
                 <span>Typically responding within 24–48 hours.</span>
               </div>
             </div>
@@ -220,7 +220,7 @@ export default function ContactSection() {
             transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-7"
           >
-            <div className="polished-card p-6 sm:p-8 lg:p-10 rounded-3xl relative">
+            <div className="polished-card glass-sheen p-6 sm:p-8 lg:p-10 rounded-3xl relative">
               <h3 className="text-xl sm:text-2xl font-light text-white mb-6">
                 Send a Direct Message
               </h3>
@@ -254,7 +254,7 @@ export default function ContactSection() {
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         placeholder="e.g. Alex Smith"
-                        className="w-full px-4 py-3.5 rounded-2xl bg-white/[0.02] border border-white/10 text-white text-sm focus:outline-none focus:border-white/40 focus:ring-1 focus:ring-white/20 focus:bg-white/[0.04] transition-all placeholder:text-zinc-600"
+                        className="glass-input w-full px-4 py-3.5 rounded-2xl text-white text-sm focus:outline-none transition-all placeholder:text-zinc-600"
                       />
                     </div>
 
@@ -270,7 +270,7 @@ export default function ContactSection() {
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         placeholder="alex@example.com"
-                        className="w-full px-4 py-3.5 rounded-2xl bg-white/[0.02] border border-white/10 text-white text-sm focus:outline-none focus:border-white/40 focus:ring-1 focus:ring-white/20 focus:bg-white/[0.04] transition-all placeholder:text-zinc-600"
+                        className="glass-input w-full px-4 py-3.5 rounded-2xl text-white text-sm focus:outline-none transition-all placeholder:text-zinc-600"
                       />
                     </div>
                   </div>
@@ -286,7 +286,7 @@ export default function ContactSection() {
                       value={formData.subject}
                       onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                       placeholder="e.g. Software Engineering Internship Opportunity"
-                      className="w-full px-4 py-3.5 rounded-2xl bg-white/[0.02] border border-white/10 text-white text-sm focus:outline-none focus:border-white/40 focus:ring-1 focus:ring-white/20 focus:bg-white/[0.04] transition-all placeholder:text-zinc-600"
+                      className="glass-input w-full px-4 py-3.5 rounded-2xl text-white text-sm focus:outline-none transition-all placeholder:text-zinc-600"
                     />
                   </div>
 
@@ -302,7 +302,7 @@ export default function ContactSection() {
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       placeholder="Write your message here..."
-                      className="w-full px-4 py-3.5 rounded-2xl bg-white/[0.02] border border-white/10 text-white text-sm focus:outline-none focus:border-white/40 focus:ring-1 focus:ring-white/20 focus:bg-white/[0.04] transition-all placeholder:text-zinc-600 resize-none"
+                      className="glass-input w-full px-4 py-3.5 rounded-2xl text-white text-sm focus:outline-none transition-all placeholder:text-zinc-600 resize-none"
                     />
                   </div>
 
@@ -311,7 +311,7 @@ export default function ContactSection() {
                     whileHover={shouldReduceMotion ? {} : { scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     type="submit"
-                    className="w-full py-4 px-6 rounded-full bg-white text-black font-semibold text-sm shadow-xl hover:bg-zinc-200 transition-all flex items-center justify-center gap-2 font-mono focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
+                    className="glass-btn-primary w-full py-4 px-6 rounded-full font-semibold text-sm shadow-xl transition-all flex items-center justify-center gap-2 font-mono focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
                   >
                     <Send className="w-4 h-4" />
                     <span>Send Message</span>

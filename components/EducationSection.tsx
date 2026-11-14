@@ -45,16 +45,16 @@ export default function EducationSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-7 polished-card p-6 sm:p-10 rounded-3xl flex flex-col justify-between space-y-8"
+            className="lg:col-span-7 polished-card glass-sheen p-6 sm:p-10 rounded-3xl flex flex-col justify-between space-y-8"
           >
             <div className="space-y-4">
               {/* Institution Pill */}
               <div className="flex flex-wrap items-center gap-2">
-                <span className="px-3 py-1 rounded-full bg-white/[0.05] border border-white/10 text-xs font-mono text-zinc-300 flex items-center gap-2">
+                <span className="glass-chip px-3 py-1 rounded-full text-xs font-mono text-zinc-300 flex items-center gap-2">
                   <Building2 className="w-3.5 h-3.5 text-zinc-400" />
                   <span>{education.institution}</span>
                 </span>
-                <span className="px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-xs font-mono text-emerald-400">
+                <span className="glass-chip px-3 py-1 rounded-full text-xs font-mono text-emerald-400 border-emerald-500/30 bg-emerald-500/10">
                   {education.currentYear} · Enrolled
                 </span>
               </div>
@@ -90,7 +90,7 @@ export default function EducationSection() {
                     viewport={{ once: true }}
                     transition={{ delay: 0.05 + idx * 0.03, duration: 0.3 }}
                     whileHover={shouldReduceMotion ? {} : { scale: 1.04, y: -1 }}
-                    className="px-3 py-1.5 rounded-xl bg-white/[0.03] border border-white/10 text-xs sm:text-sm font-mono text-zinc-300 hover:border-white/25 hover:text-white transition-colors cursor-default"
+                    className="glass-chip px-3 py-1.5 rounded-xl text-xs sm:text-sm font-mono text-zinc-300 hover:text-white transition-all cursor-default"
                   >
                     {course}
                   </motion.span>
@@ -108,12 +108,12 @@ export default function EducationSection() {
             className="lg:col-span-5 flex flex-col justify-between gap-6"
           >
             {/* Card 1: Striking GPA Hero Block */}
-            <div className="polished-card p-6 sm:p-8 rounded-3xl space-y-4 relative overflow-hidden">
+            <div className="polished-card glass-sheen p-6 sm:p-8 rounded-3xl space-y-4 relative overflow-hidden">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-mono uppercase tracking-wider text-zinc-400">
                   Academic Performance
                 </span>
-                <div className="p-2.5 rounded-2xl bg-white/[0.04] text-amber-300">
+                <div className="p-2.5 rounded-2xl bg-amber-400/10 border border-amber-400/20 text-amber-300">
                   <Award className="w-5 h-5" />
                 </div>
               </div>
@@ -137,7 +137,7 @@ export default function EducationSection() {
             </div>
 
             {/* Card 2: Academic Program Highlights & Fast Navigation */}
-            <div className="polished-card p-6 sm:p-8 rounded-3xl space-y-4">
+            <div className="polished-card glass-sheen p-6 sm:p-8 rounded-3xl space-y-4">
               <div className="flex items-center gap-2 text-xs font-mono text-zinc-400 uppercase tracking-wider">
                 <GraduationCap className="w-4 h-4 text-zinc-300" />
                 <span>Program Highlights</span>
@@ -147,7 +147,7 @@ export default function EducationSection() {
                 {academicHighlights.map((item, hIdx) => (
                   <div
                     key={hIdx}
-                    className="p-3 rounded-2xl bg-white/[0.02] border border-white/5 flex items-center justify-between gap-3 text-xs"
+                    className="p-3 rounded-2xl glass-chip flex items-center justify-between gap-3 text-xs"
                   >
                     <div>
                       <span className="text-zinc-500 block text-[10px] font-mono uppercase">
@@ -168,7 +168,7 @@ export default function EducationSection() {
               <div className="pt-2 border-t border-white/10">
                 <a
                   href="#certifications"
-                  className="w-full py-2.5 px-4 rounded-xl bg-white/[0.03] border border-white/10 hover:border-white/25 hover:bg-white/[0.06] text-xs font-mono text-zinc-300 hover:text-white flex items-center justify-between transition-all group"
+                  className="glass-btn-secondary w-full py-3 px-4 rounded-xl text-xs font-mono text-zinc-200 hover:text-white flex items-center justify-between transition-all group"
                 >
                   <span>Explore 5 Industry Certifications</span>
                   <ArrowUpRight className="w-3.5 h-3.5 text-zinc-400 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />

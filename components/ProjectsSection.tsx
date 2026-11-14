@@ -66,7 +66,7 @@ export default function ProjectsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-80px" }}
                 transition={{ duration: 0.7, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                className="polished-card p-6 sm:p-10 lg:p-12 rounded-3xl relative overflow-hidden group hover:border-white/20 transition-all duration-300"
+                className="polished-card glass-sheen p-6 sm:p-10 lg:p-12 rounded-3xl relative overflow-hidden group hover:border-white/30 transition-all duration-300"
               >
                 {/* Ambient radial highlight */}
                 <div className="absolute top-0 right-0 w-96 h-96 bg-white/[0.02] rounded-full blur-3xl pointer-events-none group-hover:bg-white/[0.04] transition-colors duration-500" />
@@ -140,7 +140,7 @@ export default function ProjectsSection() {
                           <motion.span
                             key={tech}
                             whileHover={shouldReduceMotion ? {} : { scale: 1.05, y: -1 }}
-                            className="px-2.5 py-1 rounded-lg bg-white/[0.03] border border-white/10 text-xs font-mono text-zinc-300 hover:border-white/25 hover:text-white transition-colors cursor-default"
+                            className="px-2.5 py-1 rounded-lg glass-chip text-xs font-mono text-zinc-300 hover:text-white cursor-default"
                           >
                             {tech}
                           </motion.span>
@@ -177,7 +177,7 @@ export default function ProjectsSection() {
                               transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
                               className="overflow-hidden"
                             >
-                              <div className="mt-3.5 p-4 sm:p-5 rounded-2xl bg-black/60 border border-white/10 space-y-4 text-xs font-mono">
+                              <div className="mt-3.5 p-4 sm:p-5 rounded-2xl glass-frame space-y-4 text-xs font-mono">
                                 {/* Secondary Features */}
                                 {secondaryFeatures.length > 0 && (
                                   <div className="space-y-2">
@@ -222,14 +222,14 @@ export default function ProjectsSection() {
                           href={project.githubUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="px-5 py-2.5 rounded-full bg-white text-black font-semibold text-xs font-mono flex items-center gap-2 hover:bg-zinc-200 transition-colors shadow-sm focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
+                          className="px-5 py-2.5 rounded-full glass-btn-primary font-semibold text-xs font-mono flex items-center gap-2 shadow-sm focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none transition-all"
                         >
                           <GithubIcon className="w-3.5 h-3.5" />
                           <span>View Repository</span>
                           <ArrowUpRight className="w-3.5 h-3.5" />
                         </motion.a>
                       ) : (
-                        <span className="px-5 py-2.5 rounded-full bg-zinc-900 border border-white/5 text-zinc-500 text-xs font-mono flex items-center gap-2 cursor-not-allowed">
+                        <span className="px-5 py-2.5 rounded-full glass-chip text-zinc-500 text-xs font-mono flex items-center gap-2 cursor-not-allowed">
                           <Lock className="w-3.5 h-3.5" />
                           <span>Repository Private</span>
                         </span>
@@ -242,7 +242,7 @@ export default function ProjectsSection() {
                           href={project.liveUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="px-5 py-2.5 rounded-full bg-white/[0.04] border border-white/15 hover:border-white/30 text-white text-xs font-mono flex items-center gap-2 transition-colors focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
+                          className="px-5 py-2.5 rounded-full glass-btn-secondary text-white text-xs font-mono flex items-center gap-2 transition-colors focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
                         >
                           <ExternalLink className="w-3.5 h-3.5" />
                           <span>Live Demo</span>
@@ -250,7 +250,7 @@ export default function ProjectsSection() {
                       ) : (
                         <span
                           title="Backend API verification in progress — source code available in repository"
-                          className="px-4 sm:px-5 py-2.5 rounded-full bg-zinc-900/90 border border-white/10 text-zinc-400 text-xs font-mono flex items-center gap-2 cursor-help"
+                          className="px-4 sm:px-5 py-2.5 rounded-full glass-chip text-zinc-400 text-xs font-mono flex items-center gap-2 cursor-help"
                         >
                           <Lock className="w-3.5 h-3.5 text-zinc-500" />
                           <span>Demo Inactive (API Verification)</span>
@@ -267,7 +267,7 @@ export default function ProjectsSection() {
                     transition={{ duration: 0.6, delay: 0.15 }}
                     className="lg:col-span-5 w-full"
                   >
-                    <div className="rounded-2xl p-4 sm:p-5 bg-zinc-950/90 border border-white/10 shadow-2xl space-y-4 font-mono text-xs group-hover:border-white/20 transition-colors">
+                    <div className="rounded-2xl p-4 sm:p-5 glass-frame space-y-4 font-mono text-xs group-hover:border-white/25 transition-all shadow-2xl">
                       {/* Window Top Controls */}
                       <div className="flex items-center justify-between pb-3 border-b border-white/10 text-zinc-400">
                         <div className="flex items-center gap-2">

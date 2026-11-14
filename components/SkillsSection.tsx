@@ -66,11 +66,11 @@ export default function SkillsSection() {
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.5, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
                 whileHover={shouldReduceMotion ? {} : { y: -4, transition: { duration: 0.2 } }}
-                className="polished-card p-6 sm:p-8 lg:p-10 rounded-3xl flex flex-col justify-between space-y-6 group cursor-default"
+                className="polished-card glass-sheen p-6 sm:p-8 lg:p-10 rounded-3xl flex flex-col justify-between space-y-6 group cursor-default"
               >
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <div className="p-3.5 rounded-2xl bg-white/[0.04] border border-white/10 text-white group-hover:scale-110 transition-transform">
+                    <div className="p-3.5 rounded-2xl bg-white/[0.06] backdrop-blur-md border border-white/15 text-white group-hover:scale-110 group-hover:border-cyan-400/40 group-hover:shadow-[0_0_20px_rgba(56,189,248,0.25)] transition-all">
                       <Icon className="w-5 h-5 text-zinc-200" />
                     </div>
                     <span className="text-xs font-mono text-zinc-500 uppercase tracking-wider">
@@ -93,7 +93,7 @@ export default function SkillsSection() {
                     <motion.span
                       key={tag}
                       whileHover={shouldReduceMotion ? {} : { scale: 1.05 }}
-                      className="px-3 py-1 rounded-full bg-white/[0.03] border border-white/10 text-xs sm:text-sm font-mono text-zinc-400 group-hover:text-zinc-200 transition-colors"
+                      className="glass-chip px-3 py-1 rounded-full text-xs sm:text-sm font-mono text-zinc-300 group-hover:text-white transition-colors cursor-default"
                     >
                       {tag}
                     </motion.span>
@@ -130,8 +130,8 @@ export default function SkillsSection() {
                   onClick={() => setActiveSkillCategory(cat)}
                   className={`px-3.5 py-1.5 rounded-full text-xs font-mono whitespace-nowrap transition-all duration-200 border relative focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:outline-none ${
                     activeSkillCategory === cat
-                      ? "bg-white text-black border-white font-semibold shadow-[0_0_20px_rgba(255,255,255,0.6)] scale-[1.03]"
-                      : "bg-white/[0.03] border-white/10 text-zinc-300 hover:text-white hover:bg-white/20 hover:border-white/60 hover:shadow-[0_0_22px_rgba(255,255,255,0.4)] hover:scale-105"
+                      ? "bg-white/95 text-black border-white font-semibold shadow-[0_0_24px_rgba(255,255,255,0.7)] backdrop-blur-md scale-[1.03]"
+                      : "glass-chip text-zinc-300 hover:text-white hover:border-white/50 hover:shadow-[0_0_20px_rgba(255,255,255,0.35)] hover:scale-105"
                   }`}
                 >
                   {cat}
@@ -156,14 +156,14 @@ export default function SkillsSection() {
                   initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 15 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: gIdx * 0.04 }}
-                  whileHover={shouldReduceMotion ? {} : { y: -3, borderColor: "rgba(255,255,255,0.2)" }}
-                  className="p-6 rounded-2xl bg-zinc-950/70 border border-white/10 space-y-4 transition-colors"
+                  whileHover={shouldReduceMotion ? {} : { y: -3, borderColor: "rgba(255,255,255,0.28)" }}
+                  className="polished-card glass-sheen p-6 rounded-2xl space-y-4 transition-all"
                 >
-                  <div className="flex items-center justify-between border-b border-white/5 pb-3">
-                    <span className="text-xs font-mono uppercase tracking-wider text-zinc-400 font-semibold">
+                  <div className="flex items-center justify-between border-b border-white/10 pb-3">
+                    <span className="text-xs font-mono uppercase tracking-wider text-zinc-300 font-semibold">
                       {group.category}
                     </span>
-                    <span className="text-[11px] font-mono text-zinc-500">
+                    <span className="text-[11px] font-mono text-zinc-400 glass-chip px-2 py-0.5 rounded-full">
                       {group.skills.length} skills
                     </span>
                   </div>
@@ -172,9 +172,9 @@ export default function SkillsSection() {
                     {group.skills.map((skill) => (
                       <span
                         key={skill.name}
-                        className="px-3 py-1.5 rounded-lg bg-white/[0.03] border border-white/10 text-xs sm:text-sm font-mono text-zinc-300 hover:text-white hover:border-white/25 transition-colors flex items-center gap-1.5 cursor-default"
+                        className="glass-chip px-3 py-1.5 rounded-xl text-xs sm:text-sm font-mono text-zinc-300 hover:text-white transition-all flex items-center gap-1.5 cursor-default"
                       >
-                        <CheckCircle2 className="w-3 h-3 text-zinc-500" />
+                        <CheckCircle2 className="w-3 h-3 text-emerald-400" />
                         <span>{skill.name}</span>
                       </span>
                     ))}

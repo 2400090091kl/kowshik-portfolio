@@ -69,7 +69,7 @@ export default function AboutSection() {
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-7 polished-card p-6 sm:p-10 rounded-3xl relative overflow-hidden space-y-8 group"
+            className="lg:col-span-7 polished-card glass-sheen p-6 sm:p-10 rounded-3xl relative overflow-hidden space-y-8 group"
           >
             <div className="space-y-4">
               <span className="text-xs font-mono uppercase tracking-wider text-zinc-400 block">
@@ -146,7 +146,7 @@ export default function AboutSection() {
                 transition={{ duration: 0.5, delay: idx * 0.09, ease: [0.16, 1, 0.3, 1] }}
                 whileHover={shouldReduceMotion ? {} : { y: -4, scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="polished-card p-5 sm:p-6 rounded-2xl flex flex-col justify-between space-y-4 group cursor-pointer hover:border-white/50 hover:bg-white/[0.08] hover:shadow-[0_0_30px_rgba(255,255,255,0.18)] transition-all duration-300 focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:outline-none"
+                className="polished-card glass-sheen p-5 sm:p-6 rounded-2xl flex flex-col justify-between space-y-4 group cursor-pointer hover:border-white/50 hover:bg-white/[0.08] hover:shadow-[0_0_30px_rgba(255,255,255,0.18)] transition-all duration-300 focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:outline-none"
                 aria-label={`${metric.label}: ${metric.primaryValue} ${metric.secondaryLabel}. Click to jump to ${metric.destination}`}
               >
                 {/* Header Label & Navigation Arrow */}

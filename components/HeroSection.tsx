@@ -42,17 +42,17 @@ export default function HeroSection() {
               {/* Dynamic Subtle Ambient Halo */}
               <motion.div
                 animate={shouldReduceMotion ? {} : {
-                  opacity: [0.3, 0.5, 0.3],
-                  scale: [0.98, 1.02, 0.98],
+                  opacity: [0.35, 0.55, 0.35],
+                  scale: [0.98, 1.03, 0.98],
                 }}
                 transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-                className="absolute -inset-3 bg-gradient-to-tr from-white/10 via-amber-500/10 to-transparent rounded-[3rem] blur-2xl pointer-events-none"
+                className="absolute -inset-3 bg-gradient-to-tr from-cyan-500/15 via-white/10 to-indigo-500/15 rounded-[3rem] blur-2xl pointer-events-none"
               />
 
-              {/* Main Photo Frame */}
-              <div className="relative rounded-[2.5rem] p-3 sm:p-3.5 bg-zinc-950/90 backdrop-blur-2xl border border-white/15 overflow-hidden shadow-2xl shadow-black/90">
+              {/* Glass Photo Bezel Frame */}
+              <div className="relative rounded-[2.5rem] p-3 sm:p-3.5 bg-white/[0.04] backdrop-blur-3xl border border-white/20 overflow-hidden shadow-[0_30px_70px_rgba(0,0,0,0.85),inset_0_1px_2px_rgba(255,255,255,0.3)]">
                 {/* Large Portrait Image Container */}
-                <div className="relative aspect-[4/5] w-full rounded-[2rem] overflow-hidden bg-zinc-900 border border-white/10">
+                <div className="relative aspect-[4/5] w-full rounded-[2rem] overflow-hidden bg-zinc-950 border border-white/15">
                   <Image
                     src="/profile.jpeg"
                     alt={personal.name}
@@ -65,18 +65,18 @@ export default function HeroSection() {
                   {/* Gradient Vignette Overlay for Contrast & Text Legibility */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-transparent opacity-85 pointer-events-none" />
 
-                  {/* Top-Right Floating Telemetry Chip */}
+                  {/* Top-Right Floating Frosted Telemetry Chip */}
                   <motion.div
                     animate={shouldReduceMotion ? {} : { y: [0, -4, 0] }}
                     transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-                    className="absolute top-3 sm:top-4 right-3 sm:right-4 px-3 sm:px-3.5 py-1.5 rounded-full bg-black/80 backdrop-blur-md border border-white/20 text-xs font-mono text-zinc-200 flex items-center gap-2 shadow-lg"
+                    className="absolute top-3 sm:top-4 right-3 sm:right-4 px-3 sm:px-3.5 py-1.5 rounded-full bg-black/60 backdrop-blur-xl border border-white/20 text-xs font-mono text-zinc-200 flex items-center gap-2 shadow-xl"
                   >
-                    <Sparkles className="w-3.5 h-3.5 text-amber-300" />
+                    <Sparkles className="w-3.5 h-3.5 text-cyan-300" />
                     <span>{education.currentYear} · CSIT</span>
                   </motion.div>
 
                   {/* Bottom Glass Badge inside Photo */}
-                  <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 right-3 sm:right-4 p-3.5 sm:p-4 rounded-2xl bg-black/85 backdrop-blur-xl border border-white/15 text-xs font-mono space-y-2 shadow-2xl">
+                  <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 right-3 sm:right-4 p-3.5 sm:p-4 rounded-2xl bg-black/75 backdrop-blur-2xl border border-white/20 text-xs font-mono space-y-2 shadow-2xl">
                     <div className="flex items-center justify-between text-zinc-200">
                       <div className="flex items-center gap-2 min-w-0">
                         <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
@@ -99,14 +99,14 @@ export default function HeroSection() {
 
           {/* Right Column: Name, Professional Title, Introduction & Actions (58.3% Desktop Allocation) */}
           <div className="lg:col-span-7 space-y-6 sm:space-y-7 text-center lg:text-left order-2 lg:order-2">
-            {/* Status / Availability Pill */}
+            {/* Status / Availability Glass Pill */}
             <motion.div
               initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.15, duration: 0.5 }}
-              className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/[0.04] border border-white/10 text-xs sm:text-sm font-mono text-zinc-300 shadow-sm backdrop-blur-md"
+              className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full glass-chip text-xs sm:text-sm font-mono text-zinc-200 shadow-sm backdrop-blur-xl"
             >
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(52,211,153,0.8)]" />
               <span>{personal.university}</span>
               <span className="text-zinc-600">·</span>
               <span className="text-zinc-400">Seeking SWE Internships</span>
@@ -120,7 +120,7 @@ export default function HeroSection() {
               className="space-y-2 sm:space-y-3"
             >
               <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-light tracking-tight text-white leading-[1.05]">
-                I&apos;m <span className="font-semibold text-white">{personal.name}</span>
+                I&apos;m <span className="font-semibold text-white drop-shadow-[0_2px_12px_rgba(255,255,255,0.15)]">{personal.name}</span>
               </h1>
               
               {/* Distinctive Professional Identity */}
@@ -144,7 +144,7 @@ export default function HeroSection() {
               {personal.heroBio}
             </motion.p>
 
-            {/* Discipline Badges */}
+            {/* Glass Discipline Badges */}
             <motion.div
               initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
@@ -154,7 +154,7 @@ export default function HeroSection() {
               {disciplines.map((item, idx) => (
                 <span
                   key={idx}
-                  className="px-3 py-1.5 rounded-full bg-white/[0.03] border border-white/10 text-xs sm:text-sm font-mono text-zinc-300 hover:text-white hover:border-white/20 transition-colors cursor-default"
+                  className="px-3.5 py-1.5 rounded-full glass-chip text-xs sm:text-sm font-mono text-zinc-300 hover:text-white cursor-default"
                 >
                   {item}
                 </span>
@@ -168,12 +168,12 @@ export default function HeroSection() {
               transition={{ delay: 0.55, duration: 0.5 }}
               className="flex flex-wrap items-center justify-center lg:justify-start gap-3.5 pt-2"
             >
-              {/* Primary CTA: Selected Work */}
+              {/* Primary Glass CTA: Selected Work */}
               <motion.a
                 whileHover={shouldReduceMotion ? {} : { scale: 1.03 }}
                 whileTap={{ scale: 0.98 }}
                 href="#projects"
-                className="px-6 py-3 rounded-full bg-white text-black font-semibold text-xs sm:text-sm shadow-xl hover:bg-zinc-200 transition-all flex items-center gap-2 font-mono group focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
+                className="px-6 py-3.5 rounded-full glass-btn-primary font-semibold text-xs sm:text-sm shadow-xl flex items-center gap-2 font-mono group focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none transition-all"
               >
                 <span>Selected Work</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -186,10 +186,10 @@ export default function HeroSection() {
                 href={(personal.contact as { resumeUrl?: string }).resumeUrl || "mailto:2400090091csit@gmail.com?subject=Resume%20Request"}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-3 rounded-full bg-zinc-900 border border-white/20 text-white font-semibold text-xs sm:text-sm hover:bg-zinc-800 hover:border-white/35 transition-all flex items-center gap-2 font-mono group focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none shadow-sm"
+                className="px-6 py-3.5 rounded-full glass-btn-secondary font-semibold text-xs sm:text-sm flex items-center gap-2 font-mono group focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none shadow-sm transition-all"
                 aria-label="Request or View Resume"
               >
-                <FileText className="w-4 h-4 text-amber-300" />
+                <FileText className="w-4 h-4 text-cyan-300" />
                 <span>Resume</span>
                 <ArrowUpRight className="w-3.5 h-3.5 text-zinc-400 group-hover:text-white transition-colors" />
               </motion.a>
@@ -199,7 +199,7 @@ export default function HeroSection() {
                 whileHover={shouldReduceMotion ? {} : { scale: 1.03 }}
                 whileTap={{ scale: 0.98 }}
                 href="#contact"
-                className="px-6 py-3 rounded-full bg-white/[0.04] border border-white/15 text-zinc-200 font-semibold text-xs sm:text-sm hover:bg-white/[0.08] hover:text-white hover:border-white/30 transition-all flex items-center gap-2 font-mono focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
+                className="px-6 py-3.5 rounded-full glass-btn-secondary text-zinc-300 hover:text-white font-semibold text-xs sm:text-sm flex items-center gap-2 font-mono focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none transition-all"
               >
                 <Mail className="w-4 h-4 text-zinc-400" />
                 <span>Let&apos;s Talk</span>
@@ -214,7 +214,7 @@ export default function HeroSection() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="GitHub Profile"
-                  className="p-3 rounded-full bg-white/[0.04] border border-white/10 text-zinc-300 hover:text-white hover:border-white/25 hover:bg-white/[0.08] transition-all focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
+                  className="p-3 rounded-full glass-chip text-zinc-300 hover:text-white transition-all focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
                 >
                   <GithubIcon className="w-4 h-4" />
                 </motion.a>
@@ -225,7 +225,7 @@ export default function HeroSection() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="LinkedIn Profile"
-                  className="p-3 rounded-full bg-white/[0.04] border border-white/10 text-zinc-300 hover:text-white hover:border-white/25 hover:bg-white/[0.08] transition-all focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
+                  className="p-3 rounded-full glass-chip text-zinc-300 hover:text-white transition-all focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
                 >
                   <LinkedinIcon className="w-4 h-4" />
                 </motion.a>
@@ -241,7 +241,7 @@ export default function HeroSection() {
         initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.7, duration: 0.5 }}
-        className="pt-6 sm:pt-8 flex flex-col items-center gap-2 text-zinc-500 hover:text-zinc-300 transition-colors group cursor-pointer z-10 focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none rounded-lg"
+        className="pt-6 sm:pt-8 flex flex-col items-center gap-2 text-zinc-500 hover:text-zinc-200 transition-colors group cursor-pointer z-10 focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none rounded-lg"
         aria-label="Scroll down to explore about section"
       >
         <span className="text-[11px] font-mono tracking-widest uppercase text-zinc-400 group-hover:text-zinc-200 transition-colors">
@@ -250,12 +250,12 @@ export default function HeroSection() {
         <motion.div
           animate={shouldReduceMotion ? {} : { y: [0, 5, 0] }}
           transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-          className="w-5 h-8 rounded-full border border-white/25 flex justify-center p-1 group-hover:border-white/50 transition-colors"
+          className="w-5 h-8 rounded-full border border-white/25 backdrop-blur-md bg-white/[0.03] flex justify-center p-1 group-hover:border-white/50 transition-colors shadow-lg"
         >
           <motion.div
             animate={shouldReduceMotion ? {} : { y: [0, 8, 0], opacity: [1, 0.3, 1] }}
             transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-            className="w-1 h-1.5 rounded-full bg-white/80"
+            className="w-1 h-1.5 rounded-full bg-cyan-300 shadow-[0_0_6px_rgba(103,232,249,0.8)]"
           />
         </motion.div>
         <ChevronDown className="w-3.5 h-3.5 text-zinc-500 group-hover:text-zinc-300 transition-colors -mt-1" />

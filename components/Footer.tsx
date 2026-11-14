@@ -24,7 +24,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer aria-label="Site Footer" className="relative z-10 border-t border-white/10 bg-black/60 backdrop-blur-xl py-14 text-zinc-400">
+    <footer aria-label="Site Footer" className="relative z-10 border-t border-white/10 bg-black/40 backdrop-blur-2xl py-14 text-zinc-400">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-8 border-b border-white/5">
           {/* Personal Info */}
@@ -59,7 +59,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub Profile"
-              className="p-2.5 rounded-full bg-white/[0.03] border border-white/10 text-zinc-300 hover:text-white hover:border-white/20 transition-all focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:outline-none"
+              className="glass-chip p-2.5 rounded-full text-zinc-300 hover:text-white transition-all focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:outline-none"
             >
               <GithubIcon className="w-4 h-4" />
             </motion.a>
@@ -70,7 +70,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn Profile"
-              className="p-2.5 rounded-full bg-white/[0.03] border border-white/10 text-zinc-300 hover:text-white hover:border-white/20 transition-all focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:outline-none"
+              className="glass-chip p-2.5 rounded-full text-zinc-300 hover:text-white transition-all focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:outline-none"
             >
               <LinkedinIcon className="w-4 h-4" />
             </motion.a>
@@ -79,7 +79,7 @@ export default function Footer() {
               whileTap={{ scale: 0.95 }}
               href={`mailto:${personal.contact.email}`}
               aria-label="Send Email"
-              className="p-2.5 rounded-full bg-white/[0.03] border border-white/10 text-zinc-300 hover:text-white hover:border-white/20 transition-all focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:outline-none"
+              className="glass-chip p-2.5 rounded-full text-zinc-300 hover:text-white transition-all focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:outline-none"
             >
               <Mail className="w-4 h-4" />
             </motion.a>
@@ -90,7 +90,7 @@ export default function Footer() {
               whileTap={{ scale: 0.95 }}
               onClick={scrollToTop}
               aria-label="Scroll back to top of page"
-              className="p-2.5 rounded-full bg-white/[0.05] border border-white/15 text-zinc-300 hover:text-white hover:bg-white/10 transition-all ml-2 focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:outline-none"
+              className="glass-chip p-2.5 rounded-full text-zinc-300 hover:text-white ml-2 transition-all focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:outline-none"
             >
               <ArrowUp className="w-4 h-4" />
             </motion.button>

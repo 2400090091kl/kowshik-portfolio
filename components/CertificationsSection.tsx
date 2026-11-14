@@ -41,15 +41,15 @@ export default function CertificationsSection() {
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.5, delay: idx * 0.08, ease: [0.16, 1, 0.3, 1] }}
               whileHover={shouldReduceMotion ? {} : { y: -5, transition: { duration: 0.2 } }}
-              className="polished-card p-6 sm:p-8 rounded-3xl flex flex-col justify-between space-y-6 group cursor-default"
+              className="polished-card glass-sheen p-6 sm:p-8 rounded-3xl flex flex-col justify-between space-y-6 group cursor-default"
             >
               <div className="space-y-4">
                 {/* Header Icon & Year */}
                 <div className="flex items-center justify-between gap-2">
-                  <div className="p-3 rounded-2xl bg-white/[0.04] border border-white/10 text-white group-hover:scale-110 transition-transform">
+                  <div className="p-3 rounded-2xl bg-white/[0.06] backdrop-blur-md border border-white/15 text-white group-hover:scale-110 group-hover:border-emerald-400/40 group-hover:shadow-[0_0_20px_rgba(52,211,153,0.3)] transition-all">
                     <ShieldCheck className="w-5 h-5 text-zinc-200" />
                   </div>
-                  <span className="px-3 py-1 rounded-full bg-white/[0.03] border border-white/10 text-xs font-mono text-zinc-400">
+                  <span className="glass-chip px-3 py-1 rounded-full text-xs font-mono text-zinc-300">
                     {cert.year}
                   </span>
                 </div>
@@ -61,13 +61,13 @@ export default function CertificationsSection() {
 
                 {/* Issuer */}
                 <p className="text-xs sm:text-sm font-mono text-zinc-400 flex items-center gap-1.5">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-zinc-500" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
                   <span>Issuer: {cert.issuer}</span>
                 </p>
               </div>
 
               {/* Action Button: Verify Credential */}
-              <div className="pt-2 border-t border-white/5">
+              <div className="pt-2 border-t border-white/10">
                 {cert.credentialUrl ? (
                   <motion.a
                     whileHover={shouldReduceMotion ? {} : { scale: 1.02 }}
@@ -75,14 +75,14 @@ export default function CertificationsSection() {
                     href={cert.credentialUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full py-3 px-4 rounded-full bg-white/[0.03] border border-white/10 hover:border-white/25 hover:bg-white/[0.08] text-zinc-200 text-xs font-mono flex items-center justify-center gap-2 transition-all shadow-sm focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:outline-none"
+                    className="glass-btn-secondary w-full py-3 px-4 rounded-full text-zinc-100 text-xs font-mono flex items-center justify-center gap-2 transition-all shadow-sm focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:outline-none"
                     aria-label={`Verify credential for ${cert.title}`}
                   >
                     <span>Verify Credential</span>
                     <ArrowUpRight className="w-3.5 h-3.5 text-zinc-400" />
                   </motion.a>
                 ) : (
-                  <span className="w-full py-3 px-4 rounded-full bg-white/[0.01] border border-white/5 text-zinc-600 text-xs font-mono flex items-center justify-center gap-2 cursor-default">
+                  <span className="glass-chip w-full py-3 px-4 rounded-full text-zinc-500 text-xs font-mono flex items-center justify-center gap-2 cursor-default">
                     <span>Verified Completion</span>
                   </span>
                 )}
